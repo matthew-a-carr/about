@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark gradient background -->
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Portfolio icon -->
+    <path id="portfolioIcon" d="M30,10 h40 a10,10 0 0 1 10,10 v60 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-60 a10,10 0 0 1 10,-10 z" />
+  </defs>
 
-## Getting Started
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#headerGradient)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="650" cy="80" r="60" fill="none" stroke="#4a4a4a" stroke-width="2"/>
+  <rect x="600" y="250" width="120" height="120" fill="none" stroke="#4a4a4a" stroke-width="2" transform="rotate(45 660 310)"/>
+  
+  <!-- Main heading -->
+  <text x="80" y="120" fill="#ffffff" font-family="Arial" font-size="48" font-weight="bold">
+    Matthew Carr
+  </text>
+  
+  <!-- Portfolio subtitle -->
+  <text x="80" y="170" fill="#ffffff" font-family="Arial" font-size="32">
+    Software Engineer &amp; Web Developer
+  </text>
+  
+  <!-- Description -->
+  <text x="80" y="240" fill="#888888" font-family="Arial" font-size="20">
+    Personal website and portfolio built with modern web technologies
+  </text>
+  
+  <!-- Tech stack -->
+  <text x="80" y="280" fill="#666666" font-family="Arial" font-size="16">
+    Built with React, TypeScript, and Next.js
+  </text>
+  
+  <!-- Tech badges background -->
+  <rect x="80" y="300" width="600" height="40" rx="20" fill="#2a2a2a"/>
+  
+  <!-- Tech badges text -->
+  <text x="100" y="325" fill="#00ff00" font-family="monospace" font-size="14">node 22.x</text>
+  <text x="200" y="325" fill="#00ff00" font-family="monospace" font-size="14">npm 10.x</text>
+  <text x="300" y="325" fill="#0088ff" font-family="monospace" font-size="14">React 19.0.0-rc</text>
+  <text x="440" y="325" fill="#ff69b4" font-family="monospace" font-size="14">prettier</text>
+  <text x="520" y="325" fill="#4B32C3" font-family="monospace" font-size="14">eslint</text>
+  <text x="600" y="325" fill="#38B2AC" font-family="monospace" font-size="14">Tailwind</text>
+</svg>
 
-First, run the development server:
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 22.x
+- npm 10.x
+
+### Installation
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/about.git
+cd about
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
