@@ -2,6 +2,14 @@
   "name": "about",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Matthew Carr"
+  },
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
+  },
+  "engineStrict": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
