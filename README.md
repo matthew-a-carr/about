@@ -1,53 +1,26 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark gradient background -->
-  <defs>
-    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Portfolio icon -->
-    <path id="portfolioIcon" d="M30,10 h40 a10,10 0 0 1 10,10 v60 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-60 a10,10 0 0 1 10,-10 z" />
-  </defs>
+<div align="center">
 
-  <!-- Background -->
-  <rect width="800" height="400" fill="url(#headerGradient)"/>
-  
-  <!-- Decorative elements -->
-  <circle cx="650" cy="80" r="60" fill="none" stroke="#4a4a4a" stroke-width="2"/>
-  <rect x="600" y="250" width="120" height="120" fill="none" stroke="#4a4a4a" stroke-width="2" transform="rotate(45 660 310)"/>
-  
-  <!-- Main heading -->
-  <text x="80" y="120" fill="#ffffff" font-family="Arial" font-size="48" font-weight="bold">
-    Matthew Carr
-  </text>
-  
-  <!-- Portfolio subtitle -->
-  <text x="80" y="170" fill="#ffffff" font-family="Arial" font-size="32">
-    Software Engineer &amp; Web Developer
-  </text>
-  
-  <!-- Description -->
-  <text x="80" y="240" fill="#888888" font-family="Arial" font-size="20">
-    Personal website and portfolio built with modern web technologies
-  </text>
-  
-  <!-- Tech stack -->
-  <text x="80" y="280" fill="#666666" font-family="Arial" font-size="16">
-    Built with React, TypeScript, and Next.js
-  </text>
-  
-  <!-- Tech badges background -->
-  <rect x="80" y="300" width="600" height="40" rx="20" fill="#2a2a2a"/>
-  
-  <!-- Tech badges text -->
-  <text x="100" y="325" fill="#00ff00" font-family="monospace" font-size="14">node 22.x</text>
-  <text x="200" y="325" fill="#00ff00" font-family="monospace" font-size="14">npm 10.x</text>
-  <text x="300" y="325" fill="#0088ff" font-family="monospace" font-size="14">React 19.0.0-rc</text>
-  <text x="440" y="325" fill="#ff69b4" font-family="monospace" font-size="14">prettier</text>
-  <text x="520" y="325" fill="#4B32C3" font-family="monospace" font-size="14">eslint</text>
-  <text x="600" y="325" fill="#38B2AC" font-family="monospace" font-size="14">Tailwind</text>
-</svg>
+# 🧑‍💻 Matthew Carr
+
+## 💻 Software Engineer
+
+[![Built With](https://img.shields.io/badge/Built%20With-→-gray.svg?style=flat-square)]()
+[![React](https://img.shields.io/badge/React-19.0.0--rc-black?style=flat-square&logo=react)](https://reactjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15.0.3-white?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
+
+[![Environment](https://img.shields.io/badge/Environment-→-gray.svg?style=flat-square)]()
+[![Node](https://img.shields.io/badge/node-22.x-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org)
+[![npm](https://img.shields.io/badge/npm-10.x-red?style=flat-square&logo=npm)](https://www.npmjs.com)
+
+[![Quality](https://img.shields.io/badge/Quality-→-gray.svg?style=flat-square)]()
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&logo=prettier)](https://prettier.io)
+[![linter: eslint](https://img.shields.io/badge/linter-eslint-4B32C3.svg?style=flat-square&logo=eslint)](https://eslint.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+
+---
+
+</div>
 
 ## 🚀 Getting Started
 
@@ -64,3 +37,53 @@
 git clone https://github.com/yourusername/about.git
 cd about
 ```
+
+2. Install dependencies
+
+```bash
+npm ci
+```
+
+## 💻 Development
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+The site will be available at http://localhost:3000.
+
+## 🧪 Testing
+
+### Unit tests
+
+```bash
+npm run test
+```
+
+```bash
+# Run ESLint
+npm run lint
+
+# Fix ESLint issues
+npm run lint:fix
+```
+
+### Code Formatting
+
+```bash
+# Check formatting
+npm run format
+
+# Fix formatting issues
+npm run format:fix
+```
+
+## 🚀 Deployment
+
+This project is configured for deployment on [Vercel](https://vercel.com/).
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
