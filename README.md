@@ -62,6 +62,8 @@ The site will be available at http://localhost:3000.
 npm run test
 ```
 
+### Linting
+
 ```bash
 # Run ESLint
 npm run lint
