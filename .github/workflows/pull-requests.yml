@@ -1,5 +1,8 @@
 name: PR template
 
+on:
+  push:
+
 jobs:
   unit_test:
     runs-on: ubuntu-latest
