@@ -11,6 +11,7 @@ on:
 
 jobs:
   unit_test:
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +24,7 @@ jobs:
           npm run test
 
   format_check:
+    name: Formatting check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,6 +37,7 @@ jobs:
           npm run format
 
   lint_check:
+    name: Linting check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -49,6 +52,7 @@ jobs:
   deploy_production:
     name: Deploy Production
     runs-on: ubuntu-latest
+    needs: [unit_test, format_check, lint_check]
     steps:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
