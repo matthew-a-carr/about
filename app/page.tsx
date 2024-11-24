@@ -1,19 +1,19 @@
 import { FaEnvelope, FaGithub, FaJava, FaLinkedin } from 'react-icons/fa';
 import {
-  SiSpringboot,
-  SiJavascript,
-  SiTypescript,
-  SiReact,
+  SiAmazon,
   SiDocker,
   SiGit,
+  SiJavascript,
   SiKotlin,
-  SiAmazon,
-  SiNodedotjs,
-  SiTerraform,
   SiMicrosoftazure,
-  SiPostgresql,
-  SiMysql,
   SiMongodb,
+  SiMysql,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiSpringboot,
+  SiTerraform,
+  SiTypescript,
 } from 'react-icons/si';
 
 export default function Home() {
