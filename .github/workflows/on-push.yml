@@ -1,0 +1,48 @@
+name: On push workflow
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  push:
+
+jobs:
+  unit_test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run unit tests
+        run: |
+          npm ci
+          npm run test
+
+  format_check:
+    name: Formatting check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run formatting checks
+        run: |
+          npm ci
+          npm run format
+
+  lint_check:
+    name: Linting check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run lint checks
+        run: |
+          npm ci
+          npm run lint
