@@ -16,6 +16,8 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -23,10 +25,12 @@ export default function Home() {
         {/* Header Section */}
         <div className="bg-white rounded-lg shadow-md p-8">
           <div className="flex items-center space-x-6 mb-6">
-            <img
+            <Image
               src="https://avatars.githubusercontent.com/u/76042279?v=4"
               alt="Matthew Carr"
-              className="w-20 h-20 rounded-full object-center shadow-md"
+              width="80"
+              height="80"
+              className="rounded-full object shadow-md"
             />
             <div>
               <h1 className="text-3xl font-bold text-gray-800 mb-1">
@@ -43,10 +47,12 @@ export default function Home() {
 
         {/* Current Job Section */}
         <div className="bg-white rounded-lg shadow-md p-8 flex items-center space-x-6">
-          <img
-            src="https://via.placeholder.com/100" // Replace with Boclips' logo
-            alt="Boclips"
-            className="w-24 h-24"
+          <Image
+            src="./boclips_logo.svg"
+            alt="Boclips logo"
+            width="60"
+            height="60"
+            className="shadow-md"
           />
           <div>
             <h3 className="text-2xl font-semibold text-gray-800">
