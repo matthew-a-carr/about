@@ -31,14 +31,7 @@
 
 ### Installation
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/about.git
-cd about
-```
-
-2. Install dependencies
+Install dependencies
 
 ```bash
 npm ci

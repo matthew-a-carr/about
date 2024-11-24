@@ -32,9 +32,7 @@ export default function Home() {
               <h1 className="text-3xl font-bold text-gray-800 mb-1">
                 Matthew Carr
               </h1>
-              <h2 className="text-lg text-gray-600">
-                Senior Software Engineer
-              </h2>
+              <h2 className="text-lg text-gray-600">Software Engineer</h2>
             </div>
           </div>
 
