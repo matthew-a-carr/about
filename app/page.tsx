@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FunctionComponent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { FaEnvelope, FaGithub, FaJava, FaLinkedin } from 'react-icons/fa';
 import {
   SiAmazon,
@@ -17,18 +17,7 @@ import {
   SiTerraform,
   SiTypescript,
 } from 'react-icons/si';
-
-interface SkillCardProps {
-  icon: ReactNode;
-}
-
-const SkillCard: FunctionComponent<SkillCardProps> = ({ icon }) => (
-  <div
-    className={`transform bg-gray-700 transition-all duration-300 hover:scale-105 rounded-xl p-2 shadow-lg hover:shadow-xl flex justify-center`}
-  >
-    {icon}
-  </div>
-);
+import SkillCard from './components/technical-skills/TechnicalSkills';
 
 export default function Home() {
   const skills: { name: string; icon: ReactNode }[] = [
@@ -150,7 +139,7 @@ export default function Home() {
           <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-3 md:grid-cols-8 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-9 gap-4">
             {skills.map((skill) => (
               <SkillCard key={skill.name} {...skill} />
             ))}
