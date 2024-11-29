@@ -150,7 +150,7 @@ export default function Home() {
           <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-8 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-8 gap-4">
             {skills.map((skill) => (
               <SkillCard key={skill.name} {...skill} />
             ))}
