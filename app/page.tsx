@@ -134,12 +134,12 @@ export default function Home() {
       </section>
 
       {/* Skills Grid */}
-      <section className="py-24 px-8 bg-gray-800">
+      <section className="py-24 px-8 bg-gradient-to-b from-gray-800 to-gray-700">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-3 md:grid-cols-9 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-9 gap-3">
             {skills.map((skill) => (
               <SkillCard key={skill.name} {...skill} />
             ))}
