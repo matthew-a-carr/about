@@ -22,7 +22,7 @@ export default function Home() {
             Matthew Carr
           </h1>
           <h2 className="text-2xl text-gray-300 mb-5">Software Engineer</h2>
-          <p className="text-xl text-gray-400">
+          <p className="text-xl text-gray-400 text-balance">
             Passionate about creating technology solutions that have a positive
             impact on people&apos;s lives.
           </p>
