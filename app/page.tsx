@@ -132,7 +132,7 @@ export default function Home() {
               className="rounded-xl"
             />
             <div>
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text text-balance	">
                 Senior Software Engineer at Boclips
               </h3>
               <p className="text-gray-400 mt-2">
