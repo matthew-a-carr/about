@@ -4,7 +4,7 @@ import { FaEnvelope, FaGithub, FaJava, FaLinkedin } from 'react-icons/fa';
 import {
   SiAmazon,
   SiDocker,
-  SiGit,
+  SiGooglecloud,
   SiJavascript,
   SiKotlin,
   SiMicrosoftazure,
@@ -77,6 +77,10 @@ export default function Home() {
       icon: <SiNodedotjs className="w-8 h-8 text-emerald-600" />,
     },
     {
+      name: 'Docker',
+      icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
+    },
+    {
       name: 'AWS',
       icon: <SiAmazon className="w-8 h-8 text-amber-500" />,
     },
@@ -85,12 +89,8 @@ export default function Home() {
       icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-600" />,
     },
     {
-      name: 'Docker',
-      icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
-    },
-    {
-      name: 'Git',
-      icon: <SiGit className="w-8 h-8 text-rose-500" />,
+      name: 'GCP',
+      icon: <SiGooglecloud className="w-8 h-8 text-yellow-500" />,
     },
   ];
 
