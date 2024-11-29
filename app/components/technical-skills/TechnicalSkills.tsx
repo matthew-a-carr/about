@@ -1,8 +1,10 @@
 import { FunctionComponent, ReactNode } from 'react';
 import { FaJava } from 'react-icons/fa';
-
+import { RiNextjsFill } from 'react-icons/ri';
 import {
   SiAmazon,
+  SiAngular,
+  SiCypress,
   SiDocker,
   SiGooglecloud,
   SiJavascript,
@@ -10,9 +12,9 @@ import {
   SiMicrosoftazure,
   SiMongodb,
   SiMysql,
-  SiNodedotjs,
   SiPostgresql,
   SiReact,
+  SiSnowflake,
   SiSpringboot,
   SiTerraform,
   SiTypescript,
@@ -48,8 +50,16 @@ const skills: { name: string; icon: ReactNode }[] = [
     icon: <SiMongodb className="w-8 h-8 text-emerald-700" />,
   },
   {
+    name: 'Snowflake',
+    icon: <SiSnowflake className="w-8 h-8 text-sky-500" />,
+  },
+  {
     name: 'Terraform',
     icon: <SiTerraform className="w-8 h-8 text-indigo-600" />,
+  },
+  {
+    name: 'Docker',
+    icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
   },
   {
     name: 'JavaScript',
@@ -60,16 +70,20 @@ const skills: { name: string; icon: ReactNode }[] = [
     icon: <SiTypescript className="w-8 h-8 text-blue-500" />,
   },
   {
+    name: 'Cypress',
+    icon: <SiCypress className="w-8 h-8 text-gray-300" />,
+  },
+  {
+    name: 'Angular',
+    icon: <SiAngular className="w-8 h-8 text-rose-700" />,
+  },
+  {
     name: 'React',
     icon: <SiReact className="w-8 h-8 text-blue-400" />,
   },
   {
-    name: 'Node.js',
-    icon: <SiNodedotjs className="w-8 h-8 text-emerald-600" />,
-  },
-  {
-    name: 'Docker',
-    icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
+    name: 'NextJS',
+    icon: <RiNextjsFill className="w-8 h-8" />,
   },
   {
     name: 'AWS',
