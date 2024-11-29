@@ -5,7 +5,7 @@ import TechnicalSkills from './components/technical-skills/TechnicalSkills';
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-r from-gray-800 via-gray-700 to-gray-700 text-white">
-      {/* Hero Section */}
+      {/* About me Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 z-10"></div>
         <div className="relative z-20 text-center p-8">
