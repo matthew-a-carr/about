@@ -1,88 +1,8 @@
 import Image from 'next/image';
-import { ReactNode } from 'react';
-import { FaEnvelope, FaGithub, FaJava, FaLinkedin } from 'react-icons/fa';
-import {
-  SiAmazon,
-  SiDocker,
-  SiGooglecloud,
-  SiJavascript,
-  SiKotlin,
-  SiMicrosoftazure,
-  SiMongodb,
-  SiMysql,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiSpringboot,
-  SiTerraform,
-  SiTypescript,
-} from 'react-icons/si';
-import SkillCard from './components/technical-skills/TechnicalSkills';
+import Footer from './components/footer/Footer';
+import TechnicalSkills from './components/technical-skills/TechnicalSkills';
 
 export default function Home() {
-  const skills: { name: string; icon: ReactNode }[] = [
-    {
-      name: 'Kotlin',
-      icon: <SiKotlin className="w-8 h-8 text-purple-600" />,
-    },
-    {
-      name: 'Java',
-      icon: <FaJava className="w-8 h-8 text-red-600" />,
-    },
-    {
-      name: 'Spring Boot',
-      icon: <SiSpringboot className="w-8 h-8 text-emerald-600" />,
-    },
-    {
-      name: 'PostgreSQL',
-      icon: <SiPostgresql className="w-8 h-8 text-cyan-600" />,
-    },
-    {
-      name: 'MySQL',
-      icon: <SiMysql className="w-8 h-8 text-amber-600" />,
-    },
-    {
-      name: 'MongoDB',
-      icon: <SiMongodb className="w-8 h-8 text-emerald-700" />,
-    },
-    {
-      name: 'Terraform',
-      icon: <SiTerraform className="w-8 h-8 text-indigo-600" />,
-    },
-    {
-      name: 'JavaScript',
-      icon: <SiJavascript className="w-8 h-8 text-amber-400" />,
-    },
-    {
-      name: 'TypeScript',
-      icon: <SiTypescript className="w-8 h-8 text-blue-500" />,
-    },
-    {
-      name: 'React',
-      icon: <SiReact className="w-8 h-8 text-blue-400" />,
-    },
-    {
-      name: 'Node.js',
-      icon: <SiNodedotjs className="w-8 h-8 text-emerald-600" />,
-    },
-    {
-      name: 'Docker',
-      icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
-    },
-    {
-      name: 'AWS',
-      icon: <SiAmazon className="w-8 h-8 text-amber-500" />,
-    },
-    {
-      name: 'Azure',
-      icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-600" />,
-    },
-    {
-      name: 'GCP',
-      icon: <SiGooglecloud className="w-8 h-8 text-yellow-500" />,
-    },
-  ];
-
   return (
     <main className="min-h-screen bg-gradient-to-r from-gray-800 via-gray-700 to-gray-700 text-white">
       {/* Hero Section */}
@@ -140,9 +60,7 @@ export default function Home() {
             Technical Skills
           </h3>
           <div className="grid grid-cols-3 md:grid-cols-9 gap-3">
-            {skills.map((skill) => (
-              <SkillCard key={skill.name} {...skill} />
-            ))}
+            <TechnicalSkills />
           </div>
         </div>
       </section>
@@ -151,34 +69,7 @@ export default function Home() {
       <footer className="bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-8">
           <div className="flex justify-center space-x-8">
-            {[
-              {
-                href: 'https://github.com/matthew-a-carr',
-                icon: <FaGithub className="w-8 h-8" />,
-                label: 'GitHub',
-              },
-              {
-                href: 'https://www.linkedin.com/in/matthew-carr-17012284',
-                icon: <FaLinkedin className="w-8 h-8" />,
-                label: 'LinkedIn',
-              },
-              {
-                href: 'mailto:carr.matty@gmail.com',
-                icon: <FaEnvelope className="w-8 h-8" />,
-                label: 'Email',
-              },
-            ].map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
-              >
-                {social.icon}
-              </a>
-            ))}
+            <Footer />
           </div>
         </div>
       </footer>
