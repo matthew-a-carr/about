@@ -131,7 +131,7 @@ export default function Home() {
           <h2 className="text-2xl text-gray-300 mb-5">Software Engineer</h2>
           <p className="text-xl text-gray-400">
             Passionate about creating technology solutions that have a positive
-            impact on people's lives.
+            impact on people&apos;s lives.
           </p>
         </div>
       </div>
