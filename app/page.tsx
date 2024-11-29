@@ -20,93 +20,77 @@ import {
 
 interface SkillCardProps {
   icon: ReactNode;
-  color: string;
 }
 
-const SkillCard: FunctionComponent<SkillCardProps> = ({ icon, color }) => (
+const SkillCard: FunctionComponent<SkillCardProps> = ({ icon }) => (
   <div
-    className={`transform transition-all duration-300 hover:scale-105 ${color} rounded-xl p-4 shadow-lg hover:shadow-xl`}
+    className={`transform bg-gray-700 transition-all duration-300 hover:scale-105 rounded-xl p-2 shadow-lg hover:shadow-xl flex justify-center`}
   >
-    <div className="flex justify-center">{icon}</div>
+    {icon}
   </div>
 );
 
 export default function Home() {
-  const skills: { name: string; icon: ReactNode; color: string }[] = [
+  const skills: { name: string; icon: ReactNode }[] = [
     {
       name: 'Kotlin',
-      icon: <SiKotlin className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-blue-600 to-purple-600',
+      icon: <SiKotlin className="w-8 h-8 text-purple-600" />,
     },
     {
       name: 'Java',
-      icon: <FaJava className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-orange-600 to-red-600',
+      icon: <FaJava className="w-8 h-8 text-red-600" />,
     },
     {
       name: 'Spring Boot',
-      icon: <SiSpringboot className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-green-500 to-emerald-600',
+      icon: <SiSpringboot className="w-8 h-8 text-emerald-600" />,
     },
     {
       name: 'PostgreSQL',
-      icon: <SiPostgresql className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+      icon: <SiPostgresql className="w-8 h-8 text-cyan-600" />,
     },
     {
       name: 'MySQL',
-      icon: <SiMysql className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-orange-500 to-amber-600',
+      icon: <SiMysql className="w-8 h-8 text-amber-600" />,
     },
     {
       name: 'MongoDB',
-      icon: <SiMongodb className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-green-600 to-emerald-700',
+      icon: <SiMongodb className="w-8 h-8 text-emerald-700" />,
     },
     {
       name: 'Terraform',
-      icon: <SiTerraform className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-purple-600 to-indigo-700',
+      icon: <SiTerraform className="w-8 h-8 text-indigo-600" />,
     },
     {
       name: 'JavaScript',
-      icon: <SiJavascript className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-yellow-400 to-amber-500',
+      icon: <SiJavascript className="w-8 h-8 text-amber-400" />,
     },
     {
       name: 'TypeScript',
-      icon: <SiTypescript className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
+      icon: <SiTypescript className="w-8 h-8 text-blue-500" />,
     },
     {
       name: 'React',
-      icon: <SiReact className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-cyan-400 to-blue-500',
+      icon: <SiReact className="w-8 h-8 text-blue-400" />,
     },
     {
       name: 'Node.js',
-      icon: <SiNodedotjs className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-green-500 to-emerald-600',
+      icon: <SiNodedotjs className="w-8 h-8 text-emerald-600" />,
     },
     {
       name: 'AWS',
-      icon: <SiAmazon className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-orange-500 to-amber-600',
+      icon: <SiAmazon className="w-8 h-8 text-amber-500" />,
     },
     {
       name: 'Azure',
-      icon: <SiMicrosoftazure className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+      icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-600" />,
     },
     {
       name: 'Docker',
-      icon: <SiDocker className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-blue-400 to-cyan-500',
+      icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
     },
     {
       name: 'Git',
-      icon: <SiGit className="w-8 h-8 text-white" />,
-      color: 'bg-gradient-to-br from-red-500 to-rose-600',
+      icon: <SiGit className="w-8 h-8 text-rose-500" />,
     },
   ];
 
@@ -166,7 +150,7 @@ export default function Home() {
           <h3 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-8 gap-4">
             {skills.map((skill) => (
               <SkillCard key={skill.name} {...skill} />
             ))}
