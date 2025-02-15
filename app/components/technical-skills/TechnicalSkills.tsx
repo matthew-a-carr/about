@@ -22,16 +22,16 @@ import {
 
 const skills: { name: string; icon: ReactNode }[] = [
   {
-    name: 'Kotlin',
-    icon: <SiKotlin className="w-8 h-8 text-purple-600" />,
-  },
-  {
     name: 'Java',
     icon: <FaJava className="w-8 h-8 text-red-600" />,
   },
   {
     name: 'Spring Boot',
     icon: <SiSpringboot className="w-8 h-8 text-emerald-600" />,
+  },
+  {
+    name: 'Kotlin',
+    icon: <SiKotlin className="w-8 h-8 text-purple-600" />,
   },
   {
     name: 'PostgreSQL',
