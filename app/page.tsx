@@ -46,7 +46,7 @@ export default function Home() {
                 />
               </a>
               <div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-600 whitespace-nowrap">
+                <h3 className="text-2xl font-bold mb-3 whitespace-nowrap">
                   Senior Backend Engineer
                 </h3>
                 <p className="text-gray-500 text-lg">
