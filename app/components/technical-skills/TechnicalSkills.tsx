@@ -99,18 +99,20 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
 ];
 
-const SkillCard: FunctionComponent<SkillCardProps> = ({ icon }) => (
-  <div
-    className={`transform bg-gray-700 transition-all duration-300 hover:scale-105 rounded-xl p-2 shadow-lg hover:shadow-xl flex justify-center`}
-  >
-    {icon}
-  </div>
-);
-
 const TechnicalSkills: FunctionComponent = () => (
   <>
     {skills.map((skill) => (
-      <SkillCard key={skill.name} {...skill} />
+      <div
+        key={skill.name}
+        className="bg-gray-50 rounded-xl p-4 hover:bg-blue-50 transition-all group"
+      >
+        <div className="flex flex-col items-center gap-2">
+          <div className="text-2xl">{skill.icon}</div>
+          <span className="text-sm text-gray-600 group-hover:text-blue-600">
+            {skill.name}
+          </span>
+        </div>
+      </div>
     ))}
   </>
 );

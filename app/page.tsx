@@ -32,20 +32,25 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="bg-white rounded-3xl p-10 shadow-xl">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <Image
-                src="/benefex.jpeg"
-                alt="Boclips logo"
-                width={80}
-                height={80}
-                className="rounded-xl"
-              />
+              <a
+                href="https://benifex.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/benefex.jpeg"
+                  alt="Benefex logo"
+                  width={80}
+                  height={80}
+                  className="rounded-xl"
+                />
+              </a>
               <div>
-                <h3 className="text-3xl font-bold mb-3 text-blue-600">
-                  Senior Back End Engineer at Benefex
+                <h3 className="text-3xl font-bold mb-3 text-gray-600">
+                  Senior Back End Engineer at Benifex
                 </h3>
-                <p className="text-gray-600 text-lg">
-                  Developing educational video platforms that connect educators
-                  with engaging content.
+                <p className="text-gray-500 text-lg">
+                  Helping build the Rewards & Recognition platform.
                 </p>
               </div>
             </div>
@@ -54,19 +59,19 @@ export default function Home() {
       </section>
 
       {/* Skills Grid */}
-      <section className="py-24 px-8 bg-linear-to-b from-gray-800 to-gray-700">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold mb-12 text-center bg-linear-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <h3 className="text-4xl font-bold mb-16 text-center">
             Technical Skills
           </h3>
-          <div className="grid grid-cols-3 md:grid-cols-9 gap-3">
+          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-4">
             <TechnicalSkills />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-12">
+      <footer className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-8">
           <div className="flex justify-center space-x-8">
             <Footer />
