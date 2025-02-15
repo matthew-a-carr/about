@@ -17,9 +17,9 @@ export default function Home() {
                 className="w-64 h-64 rounded-full object-cover border-8 border-white shadow-2xl"
               />
             </div>
-            <h1 className="text-6xl font-bold mb-4">Matthew Carr</h1>
+            <h1 className="text-5xl font-bold mb-4">Matthew Carr</h1>
             <h2 className="text-2xl text-gray-600 mb-6">Software Engineer</h2>
-            <p className="text-xl text-gray-500 max-w-2xl text-pretty">
+            <p className="text-xl text-gray-500 max-w-2xl ">
               Passionate about creating technology solutions that have a
               positive impact on people&apos;s lives.
             </p>
@@ -46,8 +46,8 @@ export default function Home() {
                 />
               </a>
               <div>
-                <h3 className="text-3xl font-bold mb-3 text-gray-600">
-                  Senior Back End Engineer at Benifex
+                <h3 className="text-2xl font-bold mb-3 text-gray-600 whitespace-nowrap">
+                  Senior Backend Engineer
                 </h3>
                 <p className="text-gray-500 text-lg">
                   Helping build the Rewards & Recognition platform.
