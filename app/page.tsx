@@ -4,50 +4,50 @@ import TechnicalSkills from './components/technical-skills/TechnicalSkills';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-linear-to-r from-gray-800 via-gray-700 to-gray-700 text-white">
-      {/* About me Section */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-transparent to-gray-900 z-10"></div>
-        <div className="relative z-20 text-center p-8">
-          <div className="mb-8 relative">
-            <Image
-              src="https://avatars.githubusercontent.com/u/76042279?v=4"
-              alt="Matthew Carr"
-              width={150}
-              height={150}
-              className="rounded-full mx-auto border-4 border-white shadow-2xl"
-            />
+    <main className="min-h-screen bg-white text-black">
+      {/* Hero Section */}
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"></div>
+        <div className="relative container mx-auto px-6 pt-32">
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-12">
+              <img
+                src="https://avatars.githubusercontent.com/u/76042279?v=4"
+                alt="Matthew Carr"
+                className="w-64 h-64 rounded-full object-cover border-8 border-white shadow-2xl"
+              />
+            </div>
+            <h1 className="text-6xl font-bold mb-4">Matthew Carr</h1>
+            <h2 className="text-2xl text-gray-600 mb-6">Software Engineer</h2>
+            <p className="text-xl text-gray-500 max-w-2xl text-pretty">
+              Passionate about creating technology solutions that have a
+              positive impact on people&apos;s lives.
+            </p>
           </div>
-          <h1 className="text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text">
-            Matthew Carr
-          </h1>
-          <h2 className="text-2xl text-gray-300 mb-5">Software Engineer</h2>
-          <p className="text-xl text-gray-400 text-balance">
-            Passionate about creating technology solutions that have a positive
-            impact on people&apos;s lives.
-          </p>
         </div>
       </div>
 
       {/* Current Role Section */}
-      <section className="py-24 px-8">
-        <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-all duration-300">
-          <div className="flex items-center space-x-6">
-            <Image
-              src="./boclips_logo.svg"
-              alt="Boclips logo"
-              width={80}
-              height={80}
-              className="rounded-xl"
-            />
-            <div>
-              <h3 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-indigo-200 text-transparent bg-clip-text text-balance	">
-                Senior Software Engineer at Boclips
-              </h3>
-              <p className="text-gray-400 mt-2">
-                Developing educational video platforms that connect educators
-                with engaging content.
-              </p>
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="bg-white rounded-3xl p-10 shadow-xl">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <Image
+                src="/benefex.jpeg"
+                alt="Boclips logo"
+                width={80}
+                height={80}
+                className="rounded-xl"
+              />
+              <div>
+                <h3 className="text-3xl font-bold mb-3 text-blue-600">
+                  Senior Back End Engineer at Benefex
+                </h3>
+                <p className="text-gray-600 text-lg">
+                  Developing educational video platforms that connect educators
+                  with engaging content.
+                </p>
+              </div>
             </div>
           </div>
         </div>
