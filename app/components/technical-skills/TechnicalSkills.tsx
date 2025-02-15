@@ -67,7 +67,7 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
   {
     name: 'Cypress',
-    icon: <SiCypress className="w-8 h-8 text-gray-300" />,
+    icon: <SiCypress className="w-8 h-8 text-green-400" />,
   },
   {
     name: 'Angular',
