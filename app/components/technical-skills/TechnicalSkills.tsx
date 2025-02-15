@@ -87,7 +87,7 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
   {
     name: 'Azure',
-    icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-600" />,
+    icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-800" />,
   },
   {
     name: 'GCP',
