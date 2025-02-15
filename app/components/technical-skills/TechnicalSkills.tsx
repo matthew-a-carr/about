@@ -20,10 +20,6 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
-interface SkillCardProps {
-  icon: ReactNode;
-}
-
 const skills: { name: string; icon: ReactNode }[] = [
   {
     name: 'Kotlin',
