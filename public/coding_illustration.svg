@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" rx="10" />
+  
+  <!-- Code Editor Window -->
+  <rect x="50" y="50" width="700" height="500" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+  
+  <!-- Title bar -->
+  <rect x="50" y="50" width="700" height="40" rx="10 10 0 0" fill="#334155" />
+  
+  <!-- Window controls -->
+  <circle cx="80" cy="70" r="8" fill="#ef4444" />
+  <circle cx="110" cy="70" r="8" fill="#fbbf24" />
+  <circle cx="140" cy="70" r="8" fill="#22c55e" />
+  
+  <!-- File tabs -->
+  <rect x="50" y="90" width="700" height="40" fill="#f1f5f9" />
+  <rect x="60" y="95" width="150" height="30" rx="5" fill="#e2e8f0" />
+  <text x="95" y="115" font-family="monospace" font-size="14" fill="#334155">Dockerfile</text>
+  
+  <!-- Line numbers -->
+  <rect x="50" y="130" width="40" height="420" fill="#f8fafc" />
+  <text x="65" y="155" font-family="monospace" font-size="14" fill="#94a3b8">1</text>
+  <text x="65" y="185" font-family="monospace" font-size="14" fill="#94a3b8">2</text>
+  <text x="65" y="215" font-family="monospace" font-size="14" fill="#94a3b8">3</text>
+  <text x="65" y="245" font-family="monospace" font-size="14" fill="#94a3b8">4</text>
+  <text x="65" y="275" font-family="monospace" font-size="14" fill="#94a3b8">5</text>
+  <text x="65" y="305" font-family="monospace" font-size="14" fill="#94a3b8">6</text>
+  <text x="65" y="335" font-family="monospace" font-size="14" fill="#94a3b8">7</text>
+  <text x="65" y="365" font-family="monospace" font-size="14" fill="#94a3b8">8</text>
+  <text x="65" y="395" font-family="monospace" font-size="14" fill="#94a3b8">9</text>
+  <text x="65" y="425" font-family="monospace" font-size="14" fill="#94a3b8">10</text>
+  <text x="65" y="455" font-family="monospace" font-size="14" fill="#94a3b8">11</text>
+  <text x="65" y="485" font-family="monospace" font-size="14" fill="#94a3b8">12</text>
+  
+  <!-- Code icon in place of Docker -->
+  <g transform="translate(640, 100) scale(0.15)">
+    <!-- Code brackets -->
+    <path d="M150 120 L90 200 L150 280" stroke="#4B5563" stroke-width="20" fill="none" />
+    <path d="M270 120 L330 200 L270 280" stroke="#4B5563" stroke-width="20" fill="none" />
+    <path d="M180 100 L240 300" stroke="#4B5563" stroke-width="15" fill="none" />
+  </g>
+  
+  <!-- Code content -->
+  <text x="120" y="155" font-family="monospace" font-size="14" fill="#0284c7">FROM</text>
+  <text x="170" y="155" font-family="monospace" font-size="14" fill="#334155">eclipse-temurin:17-jdk-jammy</text>
+  
+  <text x="120" y="185" font-family="monospace" font-size="14" fill="#0284c7">WORKDIR</text>
+  <text x="190" y="185" font-family="monospace" font-size="14" fill="#334155">/app</text>
+  
+  <text x="120" y="215" font-family="monospace" font-size="14" fill="#0284c7">COPY</text>
+  <text x="165" y="215" font-family="monospace" font-size="14" fill="#334155">.mvn/ .mvn</text>
+  
+  <text x="120" y="245" font-family="monospace" font-size="14" fill="#0284c7">COPY</text>
+  <text x="165" y="245" font-family="monospace" font-size="14" fill="#334155">mvnw pom.xml ./</text>
+  
+  <text x="120" y="275" font-family="monospace" font-size="14" fill="#0284c7">RUN</text>
+  <text x="155" y="275" font-family="monospace" font-size="14" fill="#334155">./mvnw dependency:resolve</text>
+  
+  <text x="120" y="305" font-family="monospace" font-size="14" fill="#0284c7">COPY</text>
+  <text x="165" y="305" font-family="monospace" font-size="14" fill="#334155">src ./src</text>
+  
+  <text x="120" y="335" font-family="monospace" font-size="14" fill="#334155"># Build the application</text>
+  
+  <text x="120" y="365" font-family="monospace" font-size="14" fill="#0284c7">RUN</text>
+  <text x="155" y="365" font-family="monospace" font-size="14" fill="#334155">./mvnw package -DskipTests</text>
+  
+  <text x="120" y="395" font-family="monospace" font-size="14" fill="#0284c7">ENV</text>
+  <text x="155" y="395" font-family="monospace" font-size="14" fill="#334155">PORT=8080</text>
+  
+  <text x="120" y="425" font-family="monospace" font-size="14" fill="#0284c7">EXPOSE</text>
+  <text x="180" y="425" font-family="monospace" font-size="14" fill="#334155">$PORT</text>
+  
+  <text x="120" y="455" font-family="monospace" font-size="14" fill="#0284c7">CMD</text>
+  <text x="155" y="455" font-family="monospace" font-size="14" fill="#334155">["java", "-jar", "target/app.jar"]</text>
+  
+  <!-- Code cursor -->
+  <rect x="390" y="452" width="2" height="18" fill="#0284c7">
+    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+  </rect>
+</svg>

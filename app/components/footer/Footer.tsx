@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FunctionComponent, ReactNode } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -16,6 +17,21 @@ const icons = [
     href: 'mailto:carr.matty@gmail.com',
     icon: <FaEnvelope className="w-8 h-8" />,
     label: 'Email',
+  },
+  {
+    href: 'https://www.strava.com/athletes/19357945',
+    icon: (
+      <div className="w-8 h-8">
+        <Image
+          src="/strava_logo.svg"
+          alt="Strava"
+          width={24}
+          height={24}
+          className="w-8 h-8"
+        />
+      </div>
+    ),
+    label: 'Strava',
   },
 ];
 
