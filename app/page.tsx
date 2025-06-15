@@ -69,19 +69,6 @@ export default function Home() {
                 >
                   <FaEnvelope size={24} />
                 </a>
-                <a
-                  href="https://www.strava.com/athletes/19357945"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-500 hover:text-orange-600 transition-colors transform hover:scale-110"
-                >
-                  <Image
-                    src="/strava_logo.svg"
-                    alt="Strava"
-                    width={24}
-                    height={24}
-                  />
-                </a>
               </div>
             </div>
 
