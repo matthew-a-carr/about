@@ -9,7 +9,7 @@ import {
   SiGooglecloud,
   SiJavascript,
   SiKotlin,
-  SiMicrosoftazure,
+  SiMicrosoft,
   SiMongodb,
   SiMysql,
   SiPostgresql,
@@ -87,7 +87,7 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
   {
     name: 'Azure',
-    icon: <SiMicrosoftazure className="w-8 h-8 text-cyan-800" />,
+    icon: <SiMicrosoft className="w-8 h-8 text-cyan-800" />,
   },
   {
     name: 'GCP',
