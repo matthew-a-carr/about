@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from 'react';
-import { FaJava } from 'react-icons/fa';
+import { FaJava, FaMicrosoft } from 'react-icons/fa';
 import { RiNextjsFill } from 'react-icons/ri';
 import {
   SiAmazon,
@@ -9,7 +9,6 @@ import {
   SiGooglecloud,
   SiJavascript,
   SiKotlin,
-  SiMicrosoft,
   SiMongodb,
   SiMysql,
   SiPostgresql,
@@ -87,7 +86,7 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
   {
     name: 'Azure',
-    icon: <SiMicrosoft className="w-8 h-8 text-cyan-800" />,
+    icon: <FaMicrosoft className="w-8 h-8 text-cyan-800" />,
   },
   {
     name: 'GCP',
