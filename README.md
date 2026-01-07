@@ -11,7 +11,7 @@
 
 [![Environment](https://img.shields.io/badge/Environment-→-gray.svg?style=flat-square)]()
 [![Node](https://img.shields.io/badge/node-22.x-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org)
-[![npm](https://img.shields.io/badge/npm-10.x-red?style=flat-square&logo=npm)](https://www.npmjs.com)
+[![pnpm](https://img.shields.io/badge/pnpm-10.x-F69220?style=flat-square&logo=pnpm)](https://pnpm.io)
 
 [![Quality](https://img.shields.io/badge/Quality-→-gray.svg?style=flat-square)]()
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&logo=prettier)](https://prettier.io)
@@ -27,14 +27,14 @@
 ### Prerequisites
 
 - Node.js 22.x
-- npm 10.x
+- pnpm 10.x
 
 ### Installation
 
 Install dependencies
 
 ```bash
-npm ci
+pnpm install --frozen-lockfile
 ```
 
 ## 💻 Development
@@ -42,7 +42,7 @@ npm ci
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 The site will be available at http://localhost:3000.
@@ -52,27 +52,27 @@ The site will be available at http://localhost:3000.
 ### Unit tests
 
 ```bash
-npm run test
+pnpm test
 ```
 
 ### Linting
 
 ```bash
 # Run ESLint
-npm run lint
+pnpm lint
 
 # Fix ESLint issues
-npm run lint:fix
+pnpm lint:fix
 ```
 
 ### Code Formatting
 
 ```bash
 # Check formatting
-npm run format
+pnpm format
 
 # Fix formatting issues
-npm run format:fix
+pnpm format:fix
 ```
 
 ## 🚀 Deployment
