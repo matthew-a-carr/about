@@ -26,7 +26,7 @@ jobs:
           pnpm test
 
   format_check:
-    name: Formatting check
+    name: Biome format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -37,13 +37,13 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-      - name: Run formatting checks
+      - name: Run Biome format checks
         run: |
           pnpm install --frozen-lockfile
           pnpm format
 
   lint_check:
-    name: Linting check
+    name: Biome lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-      - name: Run lint checks
+      - name: Run Biome lint checks
         run: |
           pnpm install --frozen-lockfile
           pnpm lint
