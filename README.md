@@ -14,8 +14,7 @@
 [![pnpm](https://img.shields.io/badge/pnpm-10.x-F69220?style=flat-square&logo=pnpm)](https://pnpm.io)
 
 [![Quality](https://img.shields.io/badge/Quality-→-gray.svg?style=flat-square)]()
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&logo=prettier)](https://prettier.io)
-[![linter: eslint](https://img.shields.io/badge/linter-eslint-4B32C3.svg?style=flat-square&logo=eslint)](https://eslint.org)
+[![Biome](https://img.shields.io/badge/Biome-2.3.11-60A5FA?style=flat-square)](https://biomejs.dev)
 [![Tailwind](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 
 ---
