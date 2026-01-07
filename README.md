@@ -7,7 +7,7 @@
 [![Built With](https://img.shields.io/badge/Built%20With-→-gray.svg?style=flat-square)]()
 [![React](https://img.shields.io/badge/React-19.0.0--rc-black?style=flat-square&logo=react)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![Next.js](https://img.shields.io/badge/Next.js-15.0.3-white?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5.9-white?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
 
 [![Environment](https://img.shields.io/badge/Environment-→-gray.svg?style=flat-square)]()
 [![Node](https://img.shields.io/badge/node-22.x-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org)
