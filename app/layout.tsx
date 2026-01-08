@@ -1,18 +1,26 @@
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+const displayFont = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
 });
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+
+const bodyFont = IBM_Plex_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['300', '400', '500', '600', '700'],
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '500', '600'],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} antialiased`}
       >
         {children}
         <Analytics />
