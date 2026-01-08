@@ -36,9 +36,9 @@ const FooterIcon: FunctionComponent<FooterIconProps> = ({
     target={href.startsWith('mailto:') ? '_self' : '_blank'}
     rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
     aria-label={label}
-    className="group inline-flex items-center gap-3 rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#1c1712] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d97a4c]"
+    className="group inline-flex items-center gap-3 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--accent)]"
   >
-    <span className="text-[#d97a4c]">{icon}</span>
+    <span className="text-[color:var(--accent)]">{icon}</span>
     <span>{label}</span>
   </a>
 );

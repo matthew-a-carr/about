@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="ember">
       <body
         className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} antialiased`}
       >
