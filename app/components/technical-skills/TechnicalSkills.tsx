@@ -22,75 +22,75 @@ import {
 const skills: { name: string; icon: ReactNode }[] = [
   {
     name: 'Java',
-    icon: <FaJava className="w-8 h-8 text-red-600" />,
+    icon: <FaJava className="h-6 w-6" />,
   },
   {
     name: 'Spring Boot',
-    icon: <SiSpringboot className="w-8 h-8 text-emerald-600" />,
+    icon: <SiSpringboot className="h-6 w-6" />,
   },
   {
     name: 'Kotlin',
-    icon: <SiKotlin className="w-8 h-8 text-purple-600" />,
+    icon: <SiKotlin className="h-6 w-6" />,
   },
   {
     name: 'PostgreSQL',
-    icon: <SiPostgresql className="w-8 h-8 text-cyan-600" />,
+    icon: <SiPostgresql className="h-6 w-6" />,
   },
   {
     name: 'MySQL',
-    icon: <SiMysql className="w-8 h-8 text-amber-600" />,
+    icon: <SiMysql className="h-6 w-6" />,
   },
   {
     name: 'MongoDB',
-    icon: <SiMongodb className="w-8 h-8 text-emerald-700" />,
+    icon: <SiMongodb className="h-6 w-6" />,
   },
   {
     name: 'Snowflake',
-    icon: <SiSnowflake className="w-8 h-8 text-sky-500" />,
+    icon: <SiSnowflake className="h-6 w-6" />,
   },
   {
     name: 'Terraform',
-    icon: <SiTerraform className="w-8 h-8 text-indigo-600" />,
+    icon: <SiTerraform className="h-6 w-6" />,
   },
   {
     name: 'Docker',
-    icon: <SiDocker className="w-8 h-8 text-cyan-600" />,
+    icon: <SiDocker className="h-6 w-6" />,
   },
   {
     name: 'JavaScript',
-    icon: <SiJavascript className="w-8 h-8 text-amber-400" />,
+    icon: <SiJavascript className="h-6 w-6" />,
   },
   {
     name: 'TypeScript',
-    icon: <SiTypescript className="w-8 h-8 text-blue-500" />,
+    icon: <SiTypescript className="h-6 w-6" />,
   },
   {
     name: 'Cypress',
-    icon: <SiCypress className="w-8 h-8 text-green-400" />,
+    icon: <SiCypress className="h-6 w-6" />,
   },
   {
     name: 'Angular',
-    icon: <SiAngular className="w-8 h-8 text-rose-700" />,
+    icon: <SiAngular className="h-6 w-6" />,
   },
   {
     name: 'React',
-    icon: <SiReact className="w-8 h-8 text-blue-400" />,
+    icon: <SiReact className="h-6 w-6" />,
   },
   {
     name: 'NextJS',
-    icon: <RiNextjsFill className="w-8 h-8" />,
+    icon: <RiNextjsFill className="h-6 w-6" />,
   },
   {
     name: 'AWS',
-    icon: <SiAmazon className="w-8 h-8 text-amber-500" />,
+    icon: <SiAmazon className="h-6 w-6" />,
   },
   {
     name: 'Azure',
-    icon: <FaMicrosoft className="w-8 h-8 text-cyan-800" />,
+    icon: <FaMicrosoft className="h-6 w-6" />,
   },
   {
     name: 'GCP',
-    icon: <SiGooglecloud className="w-8 h-8 text-yellow-500" />,
+    icon: <SiGooglecloud className="h-6 w-6" />,
   },
 ];
 
@@ -99,11 +99,13 @@ const TechnicalSkills: FunctionComponent = () => (
     {skills.map((skill) => (
       <div
         key={skill.name}
-        className="bg-gray-50 rounded-xl p-4 hover:bg-blue-50 transition-all group"
+        className="group rounded-2xl border border-black/10 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#d97a4c]"
       >
-        <div className="flex flex-col items-center gap-2">
-          <div className="text-2xl">{skill.icon}</div>
-          <span className="text-sm text-gray-600 group-hover:text-blue-600">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/5 bg-[#f7efe6] text-[#d97a4c]">
+            {skill.icon}
+          </div>
+          <span className="text-sm font-medium text-[#0b0d10]">
             {skill.name}
           </span>
         </div>
