@@ -113,7 +113,7 @@ export default function Home() {
               <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)] fade-up">
                 Overview
               </p>
-              <h1 className="font-display text-4xl leading-[1.08] sm:text-6xl fade-up delay-1">
+              <h1 className="font-display text-4xl font-semibold leading-[1.08] text-[color:var(--fg)] sm:text-6xl fade-up delay-1">
                 Senior backend engineer building reliable platforms.
               </h1>
               <p className="max-w-xl text-base text-[color:var(--soft)] fade-up delay-2 sm:text-lg">
