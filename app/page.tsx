@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Footer from './components/footer/Footer';
 import TechnicalSkills from './components/technical-skills/TechnicalSkills';
-import ThemeToggle from './components/theme-toggle/ThemeToggle';
 
 const focusAreas = [
   {
@@ -37,42 +36,94 @@ const snapshot = [
   },
 ];
 
+const navLinks = [
+  {
+    label: 'Overview',
+    href: '#main-content',
+  },
+  {
+    label: 'About',
+    href: '#about',
+  },
+  {
+    label: 'Focus',
+    href: '#focus',
+  },
+  {
+    label: 'Skills',
+    href: '#skills',
+  },
+  {
+    label: 'Current',
+    href: '#current',
+  },
+  {
+    label: 'Contact',
+    href: '#contact',
+  },
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)] font-body selection:bg-[color:var(--accent-soft)] selection:text-[color:var(--fg)]">
-      <header className="border-b border-[color:var(--border)]">
-        <div className="container mx-auto flex flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--fg)]">
-            Matthew Carr
-          </span>
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-              Senior Backend Engineer
+    <main className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)] font-body selection:bg-[color:var(--accent-soft)] selection:text-[color:var(--fg)] bg-grid">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-[color:var(--fg)] focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:uppercase focus:tracking-[0.3em] focus:text-[color:var(--on-dark)]"
+      >
+        Skip to content
+      </a>
+      <header className="border-b border-[color:var(--border)] backdrop-blur">
+        <div className="container mx-auto flex flex-col gap-6 px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--fg)]">
+              Matthew Carr
             </span>
-            <ThemeToggle />
+          </div>
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <nav
+              aria-label="Primary"
+              className="flex flex-wrap items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]"
+            >
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full px-3 py-2 transition hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
       </header>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute right-10 top-12 h-40 w-40 rounded-full bg-[color:var(--accent-glow)] opacity-40 blur-2xl"></div>
-        <div className="container mx-auto px-6 py-16">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-                About
+      <section id="main-content" className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 top-24 h-56 w-56 rounded-full bg-[color:var(--accent-soft)] opacity-60 blur-3xl float-slow"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 top-10 h-40 w-40 rounded-full bg-[color:var(--accent-glow)] opacity-50 blur-3xl float-slower"
+        />
+        <div className="container mx-auto px-6 py-16 sm:py-20">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-8">
+              <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)] fade-up">
+                Overview
               </p>
-              <h1 className="mt-6 font-display text-5xl leading-[1.05] sm:text-6xl">
+              <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl fade-up delay-1">
                 Senior backend engineer building reliable platforms.
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-[color:var(--soft)]">
+              <p className="max-w-xl text-lg text-[color:var(--soft)] fade-up delay-2">
                 I design backend systems and cloud infrastructure with a focus
                 on reliability, clarity, and developer experience.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 fade-up delay-3">
                 <a
                   href="mailto:carr.matty@gmail.com"
-                  className="rounded-full bg-[color:var(--fg)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:-translate-y-0.5 hover:bg-[color:var(--fg-strong)]"
+                  className="rounded-full bg-[color:var(--fg)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:-translate-y-0.5 hover:bg-[color:var(--fg-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   Say hello
                 </a>
@@ -80,15 +131,18 @@ export default function Home() {
                   href="https://github.com/matthew-a-carr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]"
+                  className="rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   GitHub
                 </a>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-6 rounded-[32px] border border-[color:var(--accent)] opacity-60"></div>
-              <div className="relative rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-6 rounded-[32px] border border-[color:var(--accent)] opacity-50"
+              />
+              <div className="relative rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_32px_70px_-50px_rgba(0,0,0,0.45)]">
                 <img
                   src="https://avatars.githubusercontent.com/u/76042279?v=4"
                   alt="Matthew Carr"
@@ -105,15 +159,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-[color:var(--border)] py-14">
+      <section
+        id="focus"
+        className="border-t border-[color:var(--border)] py-14"
+      >
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-3">
             {focusAreas.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+                className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_24px_60px_-44px_rgba(0,0,0,0.4)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
               >
-                <div className="h-1 w-10 rounded-full bg-[color:var(--accent)]"></div>
+                <div className="h-1 w-10 rounded-full bg-[color:var(--accent)]" />
                 <h3 className="mt-5 font-display text-2xl text-[color:var(--fg)]">
                   {item.title}
                 </h3>
@@ -126,13 +183,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-14">
+      <section id="about" className="py-14">
         <div className="container mx-auto px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div>
-              <h2 className="font-display text-3xl sm:text-4xl">
-                What I care about
-              </h2>
+              <h2 className="font-display text-3xl sm:text-4xl">About</h2>
               <p className="mt-4 text-lg text-[color:var(--soft)]">
                 Infrastructure should be invisible to the user and predictable
                 for the team. I build for stability first, then scale.
@@ -146,7 +201,7 @@ export default function Home() {
                 and developer tooling.
               </p>
             </div>
-            <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm">
+            <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_24px_60px_-44px_rgba(0,0,0,0.35)]">
               <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
                 Snapshot
               </p>
@@ -170,7 +225,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-[color:var(--border)] py-14">
+      <section
+        id="skills"
+        className="border-t border-[color:var(--border)] py-14"
+      >
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center text-center">
             <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
@@ -186,9 +244,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-14">
+      <section id="current" className="py-14">
         <div className="container mx-auto px-6">
-          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-sm">
+          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-[0_28px_70px_-52px_rgba(0,0,0,0.45)]">
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
@@ -206,7 +264,7 @@ export default function Home() {
                 href="https://benifex.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]"
+                className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
               >
                 <Image
                   src="/benefex.jpeg"
@@ -222,9 +280,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-[color:var(--border)] py-16">
+      <section
+        id="contact"
+        className="border-t border-[color:var(--border)] py-16"
+      >
         <div className="container mx-auto px-6">
-          <div className="rounded-[32px] border border-[color:var(--border)] bg-[color:var(--fg)] px-8 py-12 text-[color:var(--on-dark)] shadow-sm">
+          <div className="rounded-[32px] border border-[color:var(--border)] bg-[color:var(--fg)] px-8 py-12 text-[color:var(--on-dark)] shadow-[0_30px_70px_-52px_rgba(0,0,0,0.6)]">
             <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--accent-soft)]">
@@ -241,7 +302,7 @@ export default function Home() {
               <div className="flex flex-col gap-4 sm:flex-row md:justify-end">
                 <a
                   href="mailto:carr.matty@gmail.com"
-                  className="rounded-full bg-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-glow)]"
+                  className="rounded-full bg-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-glow)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   Email me
                 </a>
@@ -249,7 +310,7 @@ export default function Home() {
                   href="https://www.linkedin.com/in/matthew-carr-17012284"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--on-dark)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]"
+                  className="rounded-full border border-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--on-dark)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   LinkedIn
                 </a>
