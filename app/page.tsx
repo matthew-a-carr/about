@@ -73,22 +73,22 @@ export default function Home() {
         Skip to content
       </a>
       <header className="border-b border-[color:var(--border)] backdrop-blur">
-        <div className="container mx-auto flex flex-col gap-6 px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="container mx-auto flex flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--fg)]">
               Matthew Carr
             </span>
           </div>
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
             <nav
               aria-label="Primary"
-              className="flex flex-wrap items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]"
+              className="flex w-full -mx-2 flex-wrap items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)] sm:-mx-3 sm:w-auto sm:gap-3 sm:text-[10px] sm:tracking-[0.3em]"
             >
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-full px-3 py-2 transition hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                  className="rounded-full px-2 py-2 transition hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] sm:px-3"
                 >
                   {link.label}
                 </a>
@@ -113,10 +113,10 @@ export default function Home() {
               <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)] fade-up">
                 Overview
               </p>
-              <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl fade-up delay-1">
+              <h1 className="font-display text-4xl leading-[1.08] sm:text-6xl fade-up delay-1">
                 Senior backend engineer building reliable platforms.
               </h1>
-              <p className="max-w-xl text-lg text-[color:var(--soft)] fade-up delay-2">
+              <p className="max-w-xl text-base text-[color:var(--soft)] fade-up delay-2 sm:text-lg">
                 I design backend systems and cloud infrastructure with a focus
                 on reliability, clarity, and developer experience.
               </p>
