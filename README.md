@@ -56,13 +56,10 @@ pnpm test
 
 ### Integration tests
 
-Playwright smoke check that the page renders.
+Playwright smoke check that the page renders. Browsers download automatically
+on first `pnpm test:integration` run.
 
 ```bash
-# One-time browser install (CI does this automatically)
-pnpm exec playwright install
-
-# Run integration tests
 pnpm test:integration
 ```
 

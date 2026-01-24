@@ -25,6 +25,7 @@
     "lint:fix": "biome lint --write .",
     "format": "biome format .",
     "format:fix": "biome format --write .",
+    "pretest:integration": "playwright install",
     "prepare": "husky"
   },
   "dependencies": {
