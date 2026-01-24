@@ -28,6 +28,8 @@ const config: Config = {
   testEnvironment: 'jsdom',
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
+  testPathIgnorePatterns: ['<rootDir>/integration/'],
 };
 
 export default createJestConfig(config);
