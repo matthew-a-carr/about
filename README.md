@@ -10,7 +10,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.9-white?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
 
 [![Environment](https://img.shields.io/badge/Environment-→-gray.svg?style=flat-square)]()
-[![Node](https://img.shields.io/badge/node-22.x-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org)
+[![Node](https://img.shields.io/badge/node-24.13.0-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org)
 [![pnpm](https://img.shields.io/badge/pnpm-10.x-F69220?style=flat-square&logo=pnpm)](https://pnpm.io)
 
 [![Quality](https://img.shields.io/badge/Quality-→-gray.svg?style=flat-square)]()
@@ -25,7 +25,7 @@
 
 ### Prerequisites
 
-- Node.js 22.x
+- Node.js 24.13.0
 - pnpm 10.x
 
 ### Installation
