@@ -56,5 +56,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,html}": "biome check --write"
+  },
+  "pnpm": {
+    "overrides": {
+      "diff": "4.0.4"
+    }
   }
 }
