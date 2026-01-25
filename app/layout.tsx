@@ -23,6 +23,7 @@ const monoFont = IBM_Plex_Mono({
   weight: ['400', '500', '600'],
 });
 
+// https://vercel.com/docs/projects/environment-variables/system-environment-variables#vercel
 const isVercelRuntime = process.env.VERCEL === '1';
 
 export const metadata: Metadata = {

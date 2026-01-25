@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 
+// https://vercel.com/docs/projects/environment-variables/system-environment-variables#vercel
 const isVercelRuntime = process.env.VERCEL === '1';
 
 const nextConfig: NextConfig = {
