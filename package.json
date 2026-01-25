@@ -18,6 +18,9 @@
     "start": "next start",
     "test": "jest",
     "test:integration": "playwright test",
+    "test:integration:headed": "playwright test --headed",
+    "test:integration:debug": "playwright test --debug",
+    "test:integration:ui": "playwright test --ui",
     "test:watch": "jest --watch",
     "check": "biome check .",
     "check:fix": "biome check --write .",
@@ -26,6 +29,9 @@
     "format": "biome format .",
     "format:fix": "biome format --write .",
     "pretest:integration": "playwright install",
+    "pretest:integration:headed": "playwright install",
+    "pretest:integration:debug": "playwright install",
+    "pretest:integration:ui": "playwright install",
     "prepare": "husky"
   },
   "dependencies": {
