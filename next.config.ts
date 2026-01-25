@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
 
+const isVercelRuntime = process.env.VERCEL === '1';
+
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_VERCEL_OBSERVABILITY_BASEPATH: isVercelRuntime
+      ? '/_vercel'
+      : '/observability',
+  },
   images: {
     remotePatterns: [
       {

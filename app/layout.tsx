@@ -23,6 +23,8 @@ const monoFont = IBM_Plex_Mono({
   weight: ['400', '500', '600'],
 });
 
+const isVercelRuntime = process.env.VERCEL === '1';
+
 export const metadata: Metadata = {
   title: 'Matthew Carr',
   description: 'About me',
@@ -39,8 +41,8 @@ export default function RootLayout({
         className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} antialiased`}
       >
         {children}
-        <Analytics />
-        <SpeedInsights />
+        {isVercelRuntime ? <Analytics /> : null}
+        {isVercelRuntime ? <SpeedInsights /> : null}
       </body>
     </html>
   );
