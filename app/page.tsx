@@ -28,7 +28,7 @@ const snapshot = [
   },
   {
     label: 'Current',
-    value: 'Benefex - Rewards & Recognition platform',
+    value: 'Benifex - Rewards & Recognition platform',
   },
   {
     label: 'Interests',
@@ -253,7 +253,7 @@ export default function Home() {
                   Current role
                 </p>
                 <h3 className="mt-3 font-display text-2xl">
-                  Senior Backend Engineer at Benefex
+                  Senior Backend Engineer at Benifex
                 </h3>
                 <p className="mt-3 text-sm text-[color:var(--soft)]">
                   Building the Rewards & Recognition platform with a focus on
@@ -268,12 +268,12 @@ export default function Home() {
               >
                 <Image
                   src="/benefex.jpeg"
-                  alt="Benefex logo"
+                  alt="Benifex logo"
                   width={52}
                   height={52}
                   className="rounded-xl"
                 />
-                Visit Benefex
+                Visit Benifex
               </a>
             </div>
           </div>
