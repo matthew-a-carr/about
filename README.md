@@ -46,6 +46,12 @@ pnpm dev
 
 The site will be available at http://localhost:3000.
 
+Homepage layout highlights:
+- Overview hero with profile snapshot
+- About and impact sections
+- Technical skills grid
+- Current role and contact call-to-action
+
 ## 🧪 Testing
 
 ### Unit tests

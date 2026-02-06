@@ -12,11 +12,36 @@ jest.mock('./components/technical-skills/TechnicalSkills', () => ({
 }));
 
 describe('Page', () => {
-  it('should render', () => {
+  it('should render key content and calls to action', () => {
     render(<Page />);
 
-    const heading = screen.getByRole('heading', { level: 1 });
-
-    expect(heading).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'I build backend platforms teams trust in production.',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole('link', {
+        name: 'GitHub',
+      }).length,
+    ).toBeGreaterThan(0);
+    expect(
+      screen.getByRole('heading', {
+        level: 3,
+        name: 'Technical skills',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 3,
+        name: 'What teams get when we work together',
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', {
+        name: 'Email me',
+      }),
+    ).not.toBeInTheDocument();
   });
 });
