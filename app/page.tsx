@@ -9,11 +9,11 @@ const profileSnapshot = [
   },
   {
     label: 'Core stack',
-    value: 'Java, Kotlin, Spring Boot, AWS, Terraform',
+    value: 'Java, Spring Boot, AWS/GCP, Kubernetes, Pub/Sub messaging',
   },
   {
     label: 'Currently',
-    value: 'Benefex - Rewards & Recognition platform',
+    value: 'Benifex - Product-led development across multiple projects',
   },
   {
     label: 'Focus',
@@ -309,24 +309,24 @@ export default function Home() {
                   Senior Backend Engineer at Benifex
                 </h3>
                 <p className="mt-3 text-sm text-[color:var(--soft)]">
-                  Building the Rewards & Recognition platform with a focus on
-                  reliability and speed.
+                  Product-led development across multiple projects, with a focus
+                  on reliability, scalability, and delivery speed.
                 </p>
               </div>
               <a
-                href="https://www.benefex.co/"
+                href="https://benifex.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Benifex"
                 className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
               >
                 <Image
-                  src="/benefex.jpeg"
+                  src="/benifex-green.png"
                   alt="Benifex logo"
-                  width={52}
-                  height={52}
-                  className="rounded-xl"
+                  width={120}
+                  height={54}
+                  className="h-8 w-auto rounded-md"
                 />
-                Visit Benifex
               </a>
             </div>
           </div>
@@ -345,11 +345,10 @@ export default function Home() {
                   Let&apos;s connect
                 </p>
                 <h3 className="mt-4 font-display text-3xl sm:text-4xl">
-                  Open to ambitious backend and platform work.
+                  Not currently looking for new roles.
                 </h3>
                 <p className="mt-4 text-sm text-[color:var(--on-dark-muted)]">
-                  If you want calm systems and clean execution, I&apos;d love to
-                  talk.
+                  Happy to stay connected on GitHub and LinkedIn.
                 </p>
               </div>
               <div className="flex flex-col gap-4 sm:flex-row md:justify-end">

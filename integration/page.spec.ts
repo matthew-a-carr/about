@@ -94,6 +94,6 @@ test('external links open in a new tab', async ({ page }) => {
       .first(),
   ).toHaveAttribute('target', '_blank');
   await expect(
-    page.getByRole('link', { name: 'Visit Benifex' }),
+    page.locator('a[href="https://benifex.com"]').first(),
   ).toHaveAttribute('target', '_blank');
 });
