@@ -3,7 +3,7 @@ import { expect, type Page, test } from '@playwright/test';
 const sections = [
   { label: 'Overview', id: 'main-content' },
   { label: 'About', id: 'about' },
-  { label: 'Focus', id: 'focus' },
+  { label: 'Impact', id: 'impact' },
   { label: 'Skills', id: 'skills' },
   { label: 'Current', id: 'current' },
   { label: 'Contact', id: 'contact' },
@@ -61,21 +61,24 @@ test('primary navigation anchors target sections', async ({ page }) => {
   }
 });
 
-test('primary CTAs are visible with mailto links', async ({ page }) => {
+test('primary CTAs are visible with external profile links', async ({
+  page,
+}) => {
   await gotoHome(page);
 
-  const heroEmail = page.getByRole('link', { name: 'Say hello' });
-  const contactEmail = page.getByRole('link', { name: 'Email me' });
+  const hero = page.locator('#main-content');
+  const heroLinkedIn = hero.getByRole('link', { name: 'LinkedIn' });
+  const heroGithub = hero.getByRole('link', { name: 'GitHub' });
 
-  await expect(heroEmail).toBeVisible();
-  await expect(contactEmail).toBeVisible();
-  await expect(heroEmail).toHaveAttribute(
+  await expect(heroLinkedIn).toBeVisible();
+  await expect(heroGithub).toBeVisible();
+  await expect(heroLinkedIn).toHaveAttribute(
     'href',
-    'mailto:carr.matty@gmail.com',
+    'https://www.linkedin.com/in/matthew-carr-17012284',
   );
-  await expect(contactEmail).toHaveAttribute(
+  await expect(heroGithub).toHaveAttribute(
     'href',
-    'mailto:carr.matty@gmail.com',
+    'https://github.com/matthew-a-carr',
   );
 });
 
@@ -91,6 +94,6 @@ test('external links open in a new tab', async ({ page }) => {
       .first(),
   ).toHaveAttribute('target', '_blank');
   await expect(
-    page.locator('a[href="https://benifex.com/"]').first(),
+    page.getByRole('link', { name: 'Visit Benifex' }),
   ).toHaveAttribute('target', '_blank');
 });
