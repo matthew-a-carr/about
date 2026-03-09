@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import Page from './page';
 
-jest.mock('./components/footer/Footer', () => ({
+vi.mock('./components/footer/Footer', () => ({
   __esModule: true,
   default: () => null,
 }));
 
-jest.mock('./components/technical-skills/TechnicalSkills', () => ({
+vi.mock('./components/technical-skills/TechnicalSkills', () => ({
   __esModule: true,
   default: () => null,
 }));

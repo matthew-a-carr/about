@@ -1,7 +1,8 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 import React from 'react';
+import { vi } from 'vitest';
 
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
   default: (
     props: React.ImgHTMLAttributes<HTMLImageElement> & { src?: any },
