@@ -6,6 +6,8 @@ env:
 
 on:
   push:
+    branches-ignore:
+      - 'release-please--**'
 
 jobs:
   unit_test:
