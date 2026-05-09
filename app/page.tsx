@@ -1,82 +1,14 @@
 import Image from 'next/image';
 import Footer from './components/footer/Footer';
+import OutboundLink from './components/outbound-link/OutboundLink';
+import SiteNav from './components/site-nav/SiteNav';
 import TechnicalSkills from './components/technical-skills/TechnicalSkills';
-
-const profileSnapshot = [
-  {
-    label: 'Role',
-    value: 'Senior Backend Engineer',
-  },
-  {
-    label: 'Core stack',
-    value: 'Java, Spring Boot, AWS/GCP, Kubernetes, Pub/Sub messaging',
-  },
-  {
-    label: 'Currently',
-    value: 'Benifex - Product-led development across multiple projects',
-  },
-  {
-    label: 'Focus',
-    value: 'Reliability, scalability, developer experience',
-  },
-];
-
-const workPrinciples = [
-  {
-    title: 'Design for change',
-    text: 'Interfaces and data models that absorb new product demands without rewrites.',
-  },
-  {
-    title: 'Ship safely',
-    text: 'Progressive delivery, guardrails, and observability that make releases boring.',
-  },
-  {
-    title: 'Leave clear trails',
-    text: 'Readable code, sharp docs, and tooling that helps the next engineer move fast.',
-  },
-];
-
-const impactHighlights = [
-  {
-    title: 'Reliability first',
-    text: 'I bias toward calm production behavior before optimization work.',
-  },
-  {
-    title: 'Product-aware backend',
-    text: 'I map technical decisions to product outcomes and operational cost.',
-  },
-  {
-    title: 'Team acceleration',
-    text: 'I reduce cognitive load with conventions, documentation, and paved paths.',
-  },
-];
-
-const navLinks = [
-  {
-    label: 'Overview',
-    href: '#main-content',
-  },
-  {
-    label: 'About',
-    href: '#about',
-  },
-  {
-    label: 'Impact',
-    href: '#impact',
-  },
-  {
-    label: 'Skills',
-    href: '#skills',
-  },
-  {
-    label: 'Current',
-    href: '#current',
-  },
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
-];
+import {
+  impactHighlights,
+  profile,
+  profileSnapshot,
+  workPrinciples,
+} from './content';
 
 export default function Home() {
   return (
@@ -87,31 +19,7 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-30 border-b border-[color:var(--border)] bg-[color:var(--bg)] backdrop-blur">
-        <div className="container mx-auto flex flex-col gap-4 px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--fg)]">
-              Matthew Carr
-            </span>
-          </div>
-          <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <nav
-              aria-label="Primary"
-              className="flex w-full -mx-2 items-center gap-2 overflow-x-auto text-[9px] font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)] sm:-mx-3 sm:w-auto sm:gap-3 sm:text-[10px] sm:tracking-[0.3em]"
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="shrink-0 rounded-full px-2 py-2 transition hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] sm:px-3"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </header>
+      <SiteNav />
 
       <section id="main-content" className="relative overflow-hidden">
         <div
@@ -129,30 +37,26 @@ export default function Home() {
                 Overview
               </p>
               <h1 className="font-display text-4xl font-semibold leading-[1.08] text-[color:var(--fg)] sm:text-6xl fade-up delay-1">
-                I build backend platforms teams trust in production.
+                {profile.tagline}
               </h1>
               <p className="max-w-2xl text-base text-[color:var(--soft)] fade-up delay-2 sm:text-lg">
-                Senior backend engineer focused on reliability, scalability, and
-                developer experience. I help teams ship faster by making
-                architecture clearer and operations safer.
+                {profile.description}
               </p>
               <div className="flex flex-wrap gap-4 fade-up delay-3">
-                <a
-                  href="https://www.linkedin.com/in/matthew-carr-17012284"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[color:var(--fg)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:-translate-y-0.5 hover:bg-[color:var(--fg-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                <OutboundLink
+                  href={profile.links.linkedin}
+                  tracking="linkedin_hero"
+                  className="rounded-full bg-[color:var(--fg)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--on-dark)] transition hover:-translate-y-0.5 hover:bg-[color:var(--fg-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   LinkedIn
-                </a>
-                <a
-                  href="https://github.com/matthew-a-carr"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                </OutboundLink>
+                <OutboundLink
+                  href={profile.links.github}
+                  tracking="github_hero"
                   className="rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   GitHub
-                </a>
+                </OutboundLink>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 fade-up delay-3">
                 {profileSnapshot.map((row) => (
@@ -178,9 +82,12 @@ export default function Home() {
               <div className="relative mx-auto max-w-[460px] rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_32px_70px_-50px_rgba(0,0,0,0.45)]">
                 <Image
                   src="https://avatars.githubusercontent.com/u/76042279?v=4"
-                  alt="Matthew Carr"
+                  alt={profile.name}
                   width={460}
                   height={460}
+                  priority
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 460px, 100vw"
                   className="h-auto w-full rounded-[20px]"
                 />
                 <div className="mt-5 flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.32em] text-[color:var(--muted)]">
@@ -306,18 +213,17 @@ export default function Home() {
                   Current role
                 </p>
                 <h3 className="mt-3 font-display text-2xl">
-                  Senior Backend Engineer at Benifex
+                  {profile.role} at {profile.employer}
                 </h3>
                 <p className="mt-3 text-sm text-[color:var(--soft)]">
                   Product-led development across multiple projects, with a focus
                   on reliability, scalability, and delivery speed.
                 </p>
               </div>
-              <a
-                href="https://benifex.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Benifex"
+              <OutboundLink
+                href={profile.links.employer}
+                tracking="employer"
+                aria-label={profile.employer}
                 className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
               >
                 <Image
@@ -327,7 +233,7 @@ export default function Home() {
                   height={54}
                   className="h-8 w-auto rounded-md"
                 />
-              </a>
+              </OutboundLink>
             </div>
           </div>
         </div>
@@ -352,22 +258,20 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col gap-4 sm:flex-row md:justify-end">
-                <a
-                  href="https://github.com/matthew-a-carr"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <OutboundLink
+                  href={profile.links.github}
+                  tracking="github_contact"
                   className="rounded-full bg-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-glow)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   GitHub
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/matthew-carr-17012284"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                </OutboundLink>
+                <OutboundLink
+                  href={profile.links.linkedin}
+                  tracking="linkedin_contact"
                   className="rounded-full border border-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--on-dark)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
                 >
                   LinkedIn
-                </a>
+                </OutboundLink>
               </div>
             </div>
           </div>

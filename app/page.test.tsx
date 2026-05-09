@@ -12,6 +12,11 @@ vi.mock('./components/technical-skills/TechnicalSkills', () => ({
   default: () => null,
 }));
 
+vi.mock('./components/site-nav/SiteNav', () => ({
+  __esModule: true,
+  default: () => null,
+}));
+
 describe('Page', () => {
   it('should render key content and calls to action', () => {
     render(<Page />);
