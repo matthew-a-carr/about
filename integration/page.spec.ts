@@ -97,3 +97,46 @@ test('external links open in a new tab', async ({ page }) => {
     page.locator('a[href="https://benifex.com"]').first(),
   ).toHaveAttribute('target', '_blank');
 });
+
+test('hamburger drawer opens and navigates on mobile viewport', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 720 });
+  await gotoHome(page);
+
+  const openButton = page.getByRole('button', { name: 'Open navigation' });
+  await expect(openButton).toBeVisible();
+
+  await openButton.click();
+
+  const drawer = page.getByRole('dialog', { name: 'Site navigation' });
+  await expect(drawer).toBeVisible();
+
+  const aboutLink = drawer.locator('a[href="#about"]');
+  await expect(aboutLink).toBeVisible();
+  await aboutLink.click();
+
+  await expect(page).toHaveURL(/#about$/);
+  await expect(drawer).toBeHidden();
+});
+
+test('exposes SEO metadata, JSON-LD, and theme color', async ({ page }) => {
+  await gotoHome(page);
+
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    /^https?:\/\//,
+  );
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
+    'content',
+    'profile',
+  );
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+    'content',
+    'summary_large_image',
+  );
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(
+    1,
+  );
+  await expect(page.locator('meta[name="theme-color"]').first()).toHaveCount(1);
+});

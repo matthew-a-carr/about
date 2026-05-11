@@ -48,6 +48,26 @@
     monospace;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16110d;
+    --fg: #f6f1e8;
+    --fg-strong: #ffffff;
+    --muted: #a89683;
+    --soft: #c8b6a3;
+    --accent: #f29560;
+    --accent-soft: #4a2e1e;
+    --accent-glow: #66432d;
+    --surface: #1f1812;
+    --surface-alt: #2a2018;
+    --border: rgba(247, 239, 230, 0.14);
+    --on-dark: #1c1712;
+    --on-dark-muted: #5c4a3a;
+    --grid: rgba(247, 239, 230, 0.08);
+    --grid-soft: rgba(247, 239, 230, 0.05);
+  }
+}
+
 body {
   color: var(--fg);
   background: var(--bg);

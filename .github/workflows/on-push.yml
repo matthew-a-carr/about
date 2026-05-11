@@ -44,6 +44,40 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm check
 
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.27.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '>=24.13.0'
+          cache: 'pnpm'
+      - name: Run TypeScript
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm exec tsc --noEmit
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.27.0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '>=24.13.0'
+          cache: 'pnpm'
+      - name: Build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
   integration_test:
     name: Integration Tests
     runs-on: ubuntu-latest

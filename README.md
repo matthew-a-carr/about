@@ -69,23 +69,24 @@ on first `pnpm test:integration` run.
 pnpm test:integration
 ```
 
-### Linting
+### Linting and formatting
+
+This project uses [Biome](https://biomejs.dev) for both linting and
+formatting.
 
 ```bash
-# Run ESLint
+# Lint + format check (used in CI)
+pnpm check
+
+# Apply both fixes
+pnpm check:fix
+
+# Lint only
 pnpm lint
-
-# Fix ESLint issues
 pnpm lint:fix
-```
 
-### Code Formatting
-
-```bash
-# Check formatting
+# Format only
 pnpm format
-
-# Fix formatting issues
 pnpm format:fix
 ```
 
