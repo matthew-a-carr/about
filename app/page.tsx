@@ -1,147 +1,104 @@
 import Image from 'next/image';
 import Footer from './components/footer/Footer';
+import RevealOnScroll from './components/reveal/RevealOnScroll';
 import TechnicalSkills from './components/technical-skills/TechnicalSkills';
 
 const profileSnapshot = [
-  {
-    label: 'Role',
-    value: 'Senior Backend Engineer',
-  },
-  {
-    label: 'Core stack',
-    value: 'Java, Spring Boot, AWS/GCP, Kubernetes, Pub/Sub messaging',
-  },
-  {
-    label: 'Currently',
-    value: 'Benifex - Product-led development across multiple projects',
-  },
-  {
-    label: 'Focus',
-    value: 'Reliability, scalability, developer experience',
-  },
+  { label: 'Role', value: 'Senior Backend Engineer' },
+  { label: 'Stack', value: 'Java · Spring Boot · AWS · GCP · Kubernetes' },
+  { label: 'Now', value: 'Benifex' },
+  { label: 'Focus', value: 'Reliability. Scale. DX.' },
 ];
 
 const workPrinciples = [
   {
-    title: 'Design for change',
-    text: 'Interfaces and data models that absorb new product demands without rewrites.',
+    title: 'Design for change.',
+    text: 'Systems that absorb new demands without rewrites.',
   },
   {
-    title: 'Ship safely',
-    text: 'Progressive delivery, guardrails, and observability that make releases boring.',
+    title: 'Ship safely.',
+    text: 'Progressive delivery. Guardrails. Boring releases.',
   },
   {
-    title: 'Leave clear trails',
-    text: 'Readable code, sharp docs, and tooling that helps the next engineer move fast.',
+    title: 'Leave clear trails.',
+    text: 'Readable code. Sharp docs. Paved paths.',
   },
 ];
 
 const impactHighlights = [
   {
-    title: 'Reliability first',
-    text: 'I bias toward calm production behavior before optimization work.',
+    title: 'Reliability first.',
+    text: 'Calm production before clever optimization.',
   },
   {
-    title: 'Product-aware backend',
-    text: 'I map technical decisions to product outcomes and operational cost.',
+    title: 'Product-aware.',
+    text: 'Technical calls mapped to outcomes and cost.',
   },
-  {
-    title: 'Team acceleration',
-    text: 'I reduce cognitive load with conventions, documentation, and paved paths.',
-  },
+  { title: 'Team velocity.', text: 'Less cognitive load. Faster shipping.' },
 ];
 
 const navLinks = [
-  {
-    label: 'Overview',
-    href: '#main-content',
-  },
-  {
-    label: 'About',
-    href: '#about',
-  },
-  {
-    label: 'Impact',
-    href: '#impact',
-  },
-  {
-    label: 'Skills',
-    href: '#skills',
-  },
-  {
-    label: 'Current',
-    href: '#current',
-  },
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
+  { label: 'Overview', href: '#main-content' },
+  { label: 'About', href: '#about' },
+  { label: 'Impact', href: '#impact' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Current', href: '#current' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)] font-body selection:bg-[color:var(--accent-soft)] selection:text-[color:var(--fg)] bg-grid">
+    <main className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)] font-body">
+      <RevealOnScroll />
+
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-[color:var(--fg)] focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:uppercase focus:tracking-[0.3em] focus:text-[color:var(--on-dark)]"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-[color:var(--fg)] focus:px-4 focus:py-2 focus:text-xs focus:font-medium focus:text-[color:var(--on-dark)]"
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-30 border-b border-[color:var(--border)] bg-[color:var(--bg)] backdrop-blur">
-        <div className="container mx-auto flex flex-col gap-4 px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--fg)]">
-              Matthew Carr
-            </span>
-          </div>
-          <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <nav
-              aria-label="Primary"
-              className="flex w-full -mx-2 items-center gap-2 overflow-x-auto text-[9px] font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)] sm:-mx-3 sm:w-auto sm:gap-3 sm:text-[10px] sm:tracking-[0.3em]"
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="shrink-0 rounded-full px-2 py-2 transition hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] sm:px-3"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+
+      <header className="sticky top-0 z-30 glass border-b border-[color:var(--border)]">
+        <div className="container mx-auto flex h-12 items-center justify-between px-5 sm:px-8">
+          <span className="text-[15px] font-semibold tracking-tight text-[color:var(--fg)]">
+            Matthew Carr
+          </span>
+          <nav
+            aria-label="Primary"
+            className="flex items-center gap-1 overflow-x-auto text-[13px] font-medium text-[color:var(--soft)] sm:gap-2"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="shrink-0 rounded-full px-3 py-1.5 transition-colors hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--fg)]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </header>
 
+      {/* Hero */}
       <section id="main-content" className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-24 top-24 h-56 w-56 rounded-full bg-[color:var(--accent-soft)] opacity-70 blur-3xl float-slow"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 top-10 h-40 w-40 rounded-full bg-[color:var(--accent-glow)] opacity-65 blur-3xl float-slower"
-        />
-        <div className="container mx-auto px-5 py-14 sm:px-6 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="space-y-8">
-              <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)] fade-up">
-                Overview
-              </p>
-              <h1 className="font-display text-4xl font-semibold leading-[1.08] text-[color:var(--fg)] sm:text-6xl fade-up delay-1">
+        <div aria-hidden="true" className="halo" />
+        <div className="container mx-auto px-5 pt-24 pb-28 sm:px-8 sm:pt-32 sm:pb-36">
+          <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="eyebrow reveal">Senior Backend Engineer</p>
+              <h1 className="reveal reveal-delay-1 mt-6 font-display text-5xl leading-[1.02] text-[color:var(--fg)] sm:text-7xl">
                 I build backend platforms teams trust in production.
               </h1>
-              <p className="max-w-2xl text-base text-[color:var(--soft)] fade-up delay-2 sm:text-lg">
-                Senior backend engineer focused on reliability, scalability, and
-                developer experience. I help teams ship faster by making
-                architecture clearer and operations safer.
+              <p className="reveal reveal-delay-2 mt-6 max-w-xl text-lg text-[color:var(--soft)] sm:text-xl">
+                Reliable systems. Faster shipping. Cleaner architecture.
               </p>
-              <div className="flex flex-wrap gap-4 fade-up delay-3">
+              <div className="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3">
                 <a
                   href="https://www.linkedin.com/in/matthew-carr-17012284"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[color:var(--fg)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:-translate-y-0.5 hover:bg-[color:var(--fg-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                  className="btn-primary"
                 >
                   LinkedIn
                 </a>
@@ -149,127 +106,103 @@ export default function Home() {
                   href="https://github.com/matthew-a-carr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                  className="btn-secondary"
                 >
                   GitHub
                 </a>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2 fade-up delay-3">
+              <div className="reveal reveal-delay-4 mt-12 grid gap-3 sm:grid-cols-2">
                 {profileSnapshot.map((row) => (
                   <div
                     key={row.label}
-                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 shadow-[0_10px_30px_-26px_rgba(0,0,0,0.4)]"
+                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-5 py-4"
                   >
-                    <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[color:var(--muted)]">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[color:var(--muted)]">
                       {row.label}
                     </p>
-                    <p className="mt-1 text-sm font-medium text-[color:var(--fg)]">
+                    <p className="mt-1 text-[15px] font-medium text-[color:var(--fg)]">
                       {row.value}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute -inset-6 rounded-[32px] border border-[color:var(--accent)] opacity-50"
-              />
-              <div className="relative mx-auto max-w-[460px] rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_32px_70px_-50px_rgba(0,0,0,0.45)]">
+
+            <div className="reveal reveal-delay-2 relative">
+              <div className="relative mx-auto max-w-[440px] overflow-hidden rounded-[32px] bg-[color:var(--surface-alt)]">
                 <Image
                   src="https://avatars.githubusercontent.com/u/76042279?v=4"
                   alt="Matthew Carr"
                   width={460}
                   height={460}
-                  className="h-auto w-full rounded-[20px]"
+                  className="h-auto w-full"
                 />
-                <div className="mt-5 flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.32em] text-[color:var(--muted)]">
-                  <span>Backend</span>
-                  <span>Cloud</span>
-                  <span>DX</span>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* About */}
       <section
         id="about"
-        className="border-t border-[color:var(--border)] py-14"
+        className="border-t border-[color:var(--border)] bg-[color:var(--surface-alt)]"
       >
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-                About
-              </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-                Engineer mindset: stable systems, clear decisions, sharp
-                execution.
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div className="grid gap-16 lg:grid-cols-[1fr_1fr]">
+            <div className="reveal">
+              <p className="eyebrow">About</p>
+              <h2 className="mt-5 font-display text-4xl text-[color:var(--fg)] sm:text-5xl">
+                Stable systems.
+                <br />
+                Sharp decisions.
               </h2>
-              <p className="mt-5 text-base text-[color:var(--soft)] sm:text-lg">
-                I work best on product-critical backend platforms where
-                reliability and delivery speed both matter. My bias is to keep
-                architecture understandable and production behavior predictable.
+              <p className="mt-6 max-w-md text-lg text-[color:var(--soft)]">
+                I work on product-critical backends where reliability and
+                delivery speed both matter.
               </p>
-              <p className="mt-4 text-base text-[color:var(--soft)] sm:text-lg">
-                I enjoy turning vague requirements into resilient services,
-                well-defined interfaces, and operational patterns teams can
-                trust.
+              <p className="mt-4 max-w-md text-lg text-[color:var(--soft)]">
+                Vague requirements become resilient services teams can trust.
               </p>
             </div>
-            <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_24px_60px_-44px_rgba(0,0,0,0.35)]">
-              <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-                How I work
-              </p>
-              <div className="mt-6 space-y-5">
-                {workPrinciples.map((principle, index) => (
-                  <article
-                    key={principle.title}
-                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-alt)] p-4"
-                  >
-                    <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[color:var(--muted)]">
-                      0{index + 1}
-                    </p>
-                    <h3 className="mt-2 text-lg font-medium text-[color:var(--fg)]">
-                      {principle.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-[color:var(--soft)]">
-                      {principle.text}
-                    </p>
-                  </article>
-                ))}
-              </div>
+            <div className="reveal reveal-delay-1 space-y-3">
+              {workPrinciples.map((principle, index) => (
+                <article key={principle.title} className="card p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--muted)]">
+                    0{index + 1}
+                  </p>
+                  <h3 className="mt-3 font-display text-xl text-[color:var(--fg)]">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] text-[color:var(--soft)]">
+                    {principle.text}
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="impact"
-        className="border-t border-[color:var(--border)] py-14"
-      >
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="flex flex-col gap-2">
-            <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-              Impact
-            </p>
-            <h3 className="font-display text-3xl sm:text-4xl">
+      {/* Impact */}
+      <section id="impact" className="border-t border-[color:var(--border)]">
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div className="reveal max-w-2xl">
+            <p className="eyebrow">Impact</p>
+            <h3 className="mt-5 font-display text-4xl text-[color:var(--fg)] sm:text-5xl">
               What teams get when we work together
             </h3>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {impactHighlights.map((item) => (
+          <div className="mt-16 grid gap-5 md:grid-cols-3">
+            {impactHighlights.map((item, index) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-[0_24px_60px_-44px_rgba(0,0,0,0.4)] transition hover:-translate-y-1 hover:border-[color:var(--accent)]"
+                className={`card reveal reveal-delay-${index + 1} p-8`}
               >
-                <div className="h-1 w-10 rounded-full bg-[color:var(--accent)]" />
-                <h3 className="mt-5 font-display text-2xl text-[color:var(--fg)]">
+                <h3 className="font-display text-2xl text-[color:var(--fg)]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm text-[color:var(--soft)]">
+                <p className="mt-3 text-[15px] text-[color:var(--soft)]">
                   {item.text}
                 </p>
               </div>
@@ -278,85 +211,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Skills */}
       <section
         id="skills"
-        className="border-t border-[color:var(--border)] py-14"
+        className="border-t border-[color:var(--border)] bg-[color:var(--surface-alt)]"
       >
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="flex flex-col items-center text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-              Toolbox
-            </p>
-            <h3 className="mt-3 font-display text-3xl sm:text-4xl">
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div className="reveal flex flex-col items-center text-center">
+            <p className="eyebrow">Toolbox</p>
+            <h3 className="mt-5 font-display text-4xl text-[color:var(--fg)] sm:text-5xl">
               Technical skills
             </h3>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="reveal reveal-delay-1 mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             <TechnicalSkills />
           </div>
         </div>
       </section>
 
-      <section id="current" className="py-14">
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-[0_28px_70px_-52px_rgba(0,0,0,0.45)]">
-            <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--muted)]">
-                  Current role
-                </p>
-                <h3 className="mt-3 font-display text-2xl">
-                  Senior Backend Engineer at Benifex
-                </h3>
-                <p className="mt-3 text-sm text-[color:var(--soft)]">
-                  Product-led development across multiple projects, with a focus
-                  on reliability, scalability, and delivery speed.
-                </p>
-              </div>
-              <a
-                href="https://benifex.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Benifex"
-                className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--fg)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
-              >
-                <Image
-                  src="/benifex-green.png"
-                  alt="Benifex logo"
-                  width={120}
-                  height={54}
-                  className="h-8 w-auto rounded-md"
-                />
-              </a>
+      {/* Current */}
+      <section id="current" className="border-t border-[color:var(--border)]">
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div className="reveal card flex flex-col items-start gap-8 p-10 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="eyebrow">Current</p>
+              <h3 className="mt-5 font-display text-3xl text-[color:var(--fg)] sm:text-4xl">
+                Senior Backend Engineer at Benifex
+              </h3>
+              <p className="mt-3 max-w-md text-[15px] text-[color:var(--soft)]">
+                Product-led work across multiple projects.
+              </p>
             </div>
+            <a
+              href="https://benifex.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Benifex"
+              className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-4 transition hover:border-[color:var(--border-strong)]"
+            >
+              <Image
+                src="/benifex-green.png"
+                alt="Benifex logo"
+                width={120}
+                height={54}
+                className="h-10 w-auto"
+              />
+            </a>
           </div>
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="border-t border-[color:var(--border)] py-16"
-      >
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="rounded-[32px] border border-[color:var(--border)] bg-[color:var(--fg)] px-6 py-10 text-[color:var(--on-dark)] shadow-[0_30px_70px_-52px_rgba(0,0,0,0.6)] sm:px-8 sm:py-12">
-            <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+      {/* Contact */}
+      <section id="contact" className="border-t border-[color:var(--border)]">
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div className="reveal rounded-[32px] bg-[color:var(--surface-strong)] px-8 py-16 text-[color:var(--on-dark)] sm:px-16 sm:py-24">
+            <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.4em] text-[color:var(--accent-soft)]">
+                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--on-dark-muted)]">
                   Let&apos;s connect
                 </p>
-                <h3 className="mt-4 font-display text-3xl sm:text-4xl">
-                  Not currently looking for new roles.
+                <h3 className="mt-5 font-display text-4xl sm:text-5xl">
+                  Not hiring myself out.
+                  <br />
+                  Always open to talk.
                 </h3>
-                <p className="mt-4 text-sm text-[color:var(--on-dark-muted)]">
-                  Happy to stay connected on GitHub and LinkedIn.
-                </p>
               </div>
-              <div className="flex flex-col gap-4 sm:flex-row md:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
                 <a
                   href="https://github.com/matthew-a-carr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] transition hover:-translate-y-0.5 hover:bg-[color:var(--accent-glow)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black transition hover:scale-[1.03]"
                 >
                   GitHub
                 </a>
@@ -364,7 +289,7 @@ export default function Home() {
                   href="https://www.linkedin.com/in/matthew-carr-17012284"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-[color:var(--accent-soft)] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--on-dark)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+                  className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-[15px] font-medium text-white transition hover:scale-[1.03] hover:border-white/60"
                 >
                   LinkedIn
                 </a>
@@ -374,9 +299,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="pb-16">
-        <div className="container mx-auto px-5 sm:px-6">
-          <div className="flex flex-wrap justify-center gap-4">
+      <footer className="border-t border-[color:var(--border)] py-12">
+        <div className="container mx-auto px-5 sm:px-8">
+          <div className="flex flex-wrap justify-center gap-3">
             <Footer />
           </div>
         </div>
