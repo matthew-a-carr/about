@@ -4,12 +4,12 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const icons = [
   {
     href: 'https://github.com/matthew-a-carr',
-    icon: <FaGithub className="w-8 h-8" />,
+    icon: <FaGithub className="w-4 h-4" />,
     label: 'GitHub',
   },
   {
     href: 'https://www.linkedin.com/in/matthew-carr-17012284',
-    icon: <FaLinkedin className="w-8 h-8" />,
+    icon: <FaLinkedin className="w-4 h-4" />,
     label: 'LinkedIn',
   },
 ];
@@ -31,9 +31,11 @@ const FooterIcon: FunctionComponent<FooterIconProps> = ({
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="group inline-flex items-center gap-3 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--fg)] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+    className="group inline-flex items-center gap-3 rounded-full border border-[color:var(--border)] bg-white px-5 py-2.5 text-[13px] font-medium tracking-tight text-[color:var(--fg)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--border-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--fg)]"
   >
-    <span className="text-[color:var(--accent)]">{icon}</span>
+    <span aria-hidden="true" className="text-[color:var(--fg)]">
+      {icon}
+    </span>
     <span>{label}</span>
   </a>
 );

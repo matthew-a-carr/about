@@ -5,14 +5,6 @@
   --color-foreground: var(--fg);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -24,89 +16,193 @@
 }
 
 :root {
-  --bg: #f6f1e8;
-  --fg: #1c1712;
-  --fg-strong: #3a2d25;
-  --muted: #7d6b5c;
-  --soft: #5c4a3a;
-  --accent: #d97a4c;
-  --accent-soft: #f4c9a8;
-  --accent-glow: #f2b280;
-  --surface: #ffffff;
-  --surface-alt: #fffaf2;
-  --border: rgba(28, 23, 18, 0.12);
-  --on-dark: #f7efe6;
-  --on-dark-muted: #e6d7c6;
-  --grid: rgba(28, 23, 18, 0.08);
-  --grid-soft: rgba(28, 23, 18, 0.05);
-  --font-display: "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+  --bg: #ffffff;
+  --bg-elevated: #ffffff;
+  --fg: #000000;
+  --fg-strong: #000000;
+  --muted: #5e5e62;
+  --soft: #424246;
+  --surface: #fbfbfd;
+  --surface-alt: #f5f5f7;
+  --surface-strong: #1d1d1f;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --on-dark: #f5f5f7;
+  --on-dark-muted: #a1a1a6;
+  --accent: #000000;
+  --accent-soft: rgba(0, 0, 0, 0.06);
+  --accent-glow: rgba(0, 0, 0, 0.04);
+  --font-display:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI",
+    Helvetica, Arial, sans-serif;
   --font-body:
-    "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI",
+    Helvetica, Arial, sans-serif;
   --font-mono:
-    "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
+    "SF Mono", "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
 }
 
 body {
-  color: var(--fg);
-  background: var(--bg);
-  font-family: var(--font-body), "IBM Plex Sans", sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
 }
 
-.bg-grid {
-  background-image:
-    radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0),
-    radial-gradient(circle at 1px 1px, var(--grid-soft) 1px, transparent 0);
-  background-size:
-    26px 26px,
-    60px 60px;
-  background-position:
-    0 0,
-    10px 12px;
+::selection {
+  background: var(--fg);
+  color: var(--bg);
 }
 
-.fade-up {
+/* Apple-style scroll reveal */
+.reveal {
   opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.8s ease forwards;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
-.delay-1 {
-  animation-delay: 0.1s;
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.delay-2 {
-  animation-delay: 0.2s;
+.reveal-delay-1 {
+  transition-delay: 0.08s;
 }
 
-.delay-3 {
-  animation-delay: 0.3s;
+.reveal-delay-2 {
+  transition-delay: 0.16s;
 }
 
-.float-slow {
-  animation: floatSlow 10s ease-in-out infinite;
+.reveal-delay-3 {
+  transition-delay: 0.24s;
 }
 
-.float-slower {
-  animation: floatSlow 14s ease-in-out infinite;
+.reveal-delay-4 {
+  transition-delay: 0.32s;
 }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Apple-style header — solid white so content underneath never bleeds
+   through the sticky surface. backdrop-filter is layered on as an
+   enhancement when the underlying renderer honors it. */
+.glass {
+  background: #ffffff;
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
 }
 
-@keyframes floatSlow {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-18px);
-  }
+/* Sections clear the sticky header when targeted via anchors. */
+section[id] {
+  scroll-margin-top: 64px;
+}
+
+/* Soft elevation for cards */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.18);
+}
+
+/* Crisp hero halo (subtle, monochrome) */
+.halo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 20% 10%, rgba(0, 0, 0, 0.05), transparent 60%),
+    radial-gradient(50% 50% at 90% 80%, rgba(0, 0, 0, 0.04), transparent 60%);
+}
+
+/* Pill buttons (Apple-style) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 980px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  background: #1d1d1f;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 980px;
+  background: var(--surface-alt);
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease;
+}
+
+.btn-secondary:hover {
+  transform: scale(1.03);
+  background: #ebebed;
+}
+
+/* Display type, Apple-style */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -115,32 +211,10 @@ body {
   }
 }
 
-@media (max-width: 640px) {
-  .fade-up {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .fade-up,
-  .float-slow,
-  .float-slower {
-    animation: none;
+  .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
   }
-}
-
-.font-display {
-  font-family: var(--font-display), "Fraunces", "Times New Roman", serif;
-}
-
-.font-body {
-  font-family: var(--font-body), "IBM Plex Sans", sans-serif;
-}
-
-.font-mono {
-  font-family: var(--font-mono), "IBM Plex Mono", monospace;
 }
