@@ -59,19 +59,19 @@ export default function Home() {
       </a>
 
       <header className="sticky top-0 z-30 glass border-b border-[color:var(--border)]">
-        <div className="container mx-auto flex h-12 items-center justify-between px-5 sm:px-8">
-          <span className="text-[15px] font-semibold tracking-tight text-[color:var(--fg)]">
+        <div className="container mx-auto flex h-12 items-center gap-3 px-4 sm:px-8">
+          <span className="hidden whitespace-nowrap text-[15px] font-semibold tracking-tight text-[color:var(--fg)] sm:inline">
             Matthew Carr
           </span>
           <nav
             aria-label="Primary"
-            className="flex items-center gap-1 overflow-x-auto text-[13px] font-medium text-[color:var(--soft)] sm:gap-2"
+            className="flex flex-1 items-center justify-end gap-0.5 overflow-x-auto whitespace-nowrap text-[12px] font-medium text-[color:var(--soft)] sm:gap-2 sm:text-[13px]"
           >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="shrink-0 rounded-full px-3 py-1.5 transition-colors hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--fg)]"
+                className="shrink-0 rounded-full px-2 py-1.5 transition-colors hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--fg)] sm:px-3"
               >
                 {link.label}
               </a>

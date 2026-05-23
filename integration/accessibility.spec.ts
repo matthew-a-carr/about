@@ -7,6 +7,19 @@ test('home page has no serious or critical accessibility violations', async ({
 }) => {
   await gotoHome(page);
 
+  // Reveal animations start at opacity:0; disable transitions and force
+  // the rested state so axe scans what the user actually sees rather than
+  // the mid-animation frame.
+  await page.addStyleTag({
+    content:
+      '.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }',
+  });
+  await page.evaluate(() => {
+    for (const el of document.querySelectorAll('.reveal')) {
+      el.classList.add('in-view');
+    }
+  });
+
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa'])
     .analyze();

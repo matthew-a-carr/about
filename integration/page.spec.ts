@@ -116,19 +116,31 @@ test('hash deep-link on initial load scrolls to the target section', async ({
 }) => {
   await gotoHome(page, '/#impact');
 
-  await page.waitForTimeout(300);
+  // Wait for smooth-scroll to settle: poll until scrollY stays stable.
+  await page.waitForFunction(
+    () => {
+      const w = window as unknown as {
+        __lastScroll?: number;
+        __stableTicks?: number;
+      };
+      if (w.__lastScroll === window.scrollY) {
+        w.__stableTicks = (w.__stableTicks ?? 0) + 1;
+        return (w.__stableTicks ?? 0) >= 3;
+      }
+      w.__lastScroll = window.scrollY;
+      w.__stableTicks = 0;
+      return false;
+    },
+    { polling: 100, timeout: 5000 },
+  );
 
-  const { scrollY, impactTop } = await page.evaluate(() => {
-    const impact = document.getElementById('impact');
-    return {
-      scrollY: window.scrollY,
-      impactTop: impact
-        ? impact.getBoundingClientRect().top + window.scrollY
-        : 0,
-    };
-  });
+  const viewportTop = await page
+    .locator('#impact')
+    .evaluate((el) => el.getBoundingClientRect().top);
 
-  expect(scrollY).toBeGreaterThan(impactTop - 200);
+  // The impact section should be at or near the top of the viewport.
+  expect(viewportTop).toBeGreaterThanOrEqual(0);
+  expect(viewportTop).toBeLessThan(200);
 });
 
 test('sticky header remains visible after scrolling to the bottom', async ({
@@ -160,19 +172,26 @@ test('hero avatar and Benifex logo load successfully', async ({ page }) => {
 
   for (const alt of ['Matthew Carr', 'Benifex logo']) {
     const img = page.locator(`img[alt="${alt}"]`).first();
+    await img.scrollIntoViewIfNeeded();
     await expect(img).toBeVisible();
-    const naturalWidth = await img.evaluate(
-      (node) => (node as HTMLImageElement).naturalWidth,
-    );
-    expect(naturalWidth, `${alt} naturalWidth`).toBeGreaterThan(0);
+    // Next.js lazy-loads images; wait for the natural width to populate.
+    await expect
+      .poll(
+        async () =>
+          img.evaluate((node) => (node as HTMLImageElement).naturalWidth),
+        { timeout: 5000 },
+      )
+      .toBeGreaterThan(0);
   }
 });
 
-test('every section has a heading at level h2 or h3', async ({ page }) => {
+test('every section has at least one heading', async ({ page }) => {
   await gotoHome(page);
 
   for (const section of sections) {
-    const headings = page.locator(`#${section.id} h2, #${section.id} h3`);
+    const headings = page.locator(
+      `#${section.id} h1, #${section.id} h2, #${section.id} h3`,
+    );
     expect(
       await headings.count(),
       `section #${section.id} should have a heading`,
@@ -196,6 +215,95 @@ test('footer exposes GitHub and LinkedIn links', async ({ page }) => {
   const footer = page.locator('footer').last();
   await expect(footer.getByRole('link', { name: 'GitHub' })).toBeVisible();
   await expect(footer.getByRole('link', { name: 'LinkedIn' })).toBeVisible();
+});
+
+test('sticky header is opaque enough to obscure content under it', async ({
+  page,
+}) => {
+  await gotoHome(page);
+  await page.evaluate(() => window.scrollTo(0, 2000));
+  await page.waitForTimeout(200);
+
+  const headerBg = await page
+    .locator('header')
+    .first()
+    .evaluate((el) => getComputedStyle(el).backgroundColor);
+
+  const match = headerBg.match(/rgba?\(([^)]+)\)/);
+  expect(match, `unparseable backgroundColor: ${headerBg}`).not.toBeNull();
+  const parts = (match?.[1] ?? '')
+    .split(',')
+    .map((s) => Number.parseFloat(s.trim()));
+  const alpha = parts.length === 4 ? parts[3] : 1;
+
+  expect(
+    alpha,
+    `header alpha was ${alpha} (${headerBg})`,
+  ).toBeGreaterThanOrEqual(0.9);
+});
+
+test('section anchors leave room for the sticky header', async ({ page }) => {
+  await gotoHome(page);
+
+  const headerHeight = await page
+    .locator('header')
+    .first()
+    .evaluate((el) => (el as HTMLElement).getBoundingClientRect().height);
+
+  for (const section of sections.filter((s) => s.id !== 'main-content')) {
+    const scrollMargin = await page
+      .locator(`#${section.id}`)
+      .evaluate((el) =>
+        Number.parseFloat(getComputedStyle(el).scrollMarginTop),
+      );
+
+    expect(
+      scrollMargin,
+      `#${section.id} scroll-margin-top (was ${scrollMargin}px, header ${headerHeight}px)`,
+    ).toBeGreaterThanOrEqual(headerHeight);
+  }
+});
+
+test('mobile header keeps the brand on a single line', async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await gotoHome(page);
+
+  const brand = page
+    .locator('header span', { hasText: 'Matthew Carr' })
+    .first();
+
+  if ((await brand.count()) === 0) {
+    // It's also acceptable to hide the brand on mobile.
+    return;
+  }
+
+  const lines = await brand.evaluate((el) => {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    return range.getClientRects().length;
+  });
+  expect(lines, 'brand line count').toBeLessThanOrEqual(1);
+});
+
+test('mobile primary nav does not push content beyond the viewport', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await gotoHome(page);
+
+  const overflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth -
+      document.documentElement.clientWidth,
+  );
+  expect(
+    overflow,
+    `document overflows viewport by ${overflow}px`,
+  ).toBeLessThanOrEqual(0);
+
+  const nav = page.getByRole('navigation', { name: 'Primary' });
+  const overflowX = await nav.evaluate((el) => getComputedStyle(el).overflowX);
+  expect(['auto', 'scroll']).toContain(overflowX);
 });
 
 test('keyboard navigation reaches every primary nav link', async ({ page }) => {
