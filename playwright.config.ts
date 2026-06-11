@@ -14,6 +14,12 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:3000',
     trace: 'on-first-retry',
+    // Set PW_BROWSER_CHANNEL=chrome to run against an installed browser
+    // instead of downloading Playwright's bundled ones (chromium-family
+    // projects only — firefox/webkit ignore unknown channels at launch).
+    ...(process.env.PW_BROWSER_CHANNEL
+      ? { channel: process.env.PW_BROWSER_CHANNEL }
+      : {}),
   },
   webServer: {
     command: 'pnpm build && pnpm start',

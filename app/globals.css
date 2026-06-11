@@ -191,38 +191,6 @@ section[id] {
   background: var(--accent);
 }
 
-/* Infinite skills ticker: the track holds two identical lists and loops
-   by translating exactly half its own width. */
-.marquee {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 36s linear infinite;
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Statement words start dimmed; GSAP scrubs them to full strength. */
 .statement-word {
   opacity: 0.18;
@@ -235,10 +203,6 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-
   .statement-word {
     opacity: 1;
   }

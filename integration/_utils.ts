@@ -2,8 +2,8 @@ import { expect, type Page } from '@playwright/test';
 
 export const sections = [
   { label: 'Overview', id: 'main-content' },
+  { label: 'Building', id: 'building' },
   { label: 'About', id: 'about' },
-  { label: 'Impact', id: 'impact' },
   { label: 'Skills', id: 'skills' },
   { label: 'Current', id: 'current' },
   { label: 'Contact', id: 'contact' },

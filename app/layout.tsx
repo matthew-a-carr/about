@@ -24,11 +24,13 @@ const isVercelRuntime = process.env.VERCEL === '1';
 export const metadata: Metadata = {
   title: 'Matthew Carr — Staff Backend Engineer',
   description:
-    'Matthew Carr is a Staff Backend Engineer at Benifex building reliable backend platforms with Java, Spring Boot, Kubernetes, AWS and GCP.',
+    'Matthew Carr is a Staff Backend Engineer at Benifex, putting good engineering principles and design into agentic systems to build well-thought-out applications.',
   keywords: [
     'Matthew Carr',
     'Staff Backend Engineer',
     'Backend Engineer',
+    'Agentic systems',
+    'Engineering principles',
     'Java',
     'Spring Boot',
     'Kubernetes',
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Matthew Carr — Staff Backend Engineer',
     description:
-      'Staff Backend Engineer at Benifex. Reliable systems, faster shipping, cleaner architecture.',
+      'Engineering principles and design, put into agentic systems to build well-thought-out applications.',
     type: 'profile',
     images: ['https://avatars.githubusercontent.com/u/76042279?v=4'],
   },
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Matthew Carr — Staff Backend Engineer',
     description:
-      'Staff Backend Engineer at Benifex. Reliable systems, faster shipping, cleaner architecture.',
+      'Engineering principles and design, put into agentic systems to build well-thought-out applications.',
   },
 };
 

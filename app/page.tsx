@@ -8,7 +8,38 @@ const profileSnapshot = [
   { label: 'Role', value: 'Staff Backend Engineer' },
   { label: 'Stack', value: 'Java · Spring Boot · AWS · GCP · Kubernetes' },
   { label: 'Now', value: 'Benifex' },
-  { label: 'Focus', value: 'Reliability. Scale. DX.' },
+  { label: 'Focus', value: 'Engineering principles. Agentic systems.' },
+];
+
+const projects = [
+  {
+    name: 'Travel Planner',
+    href: 'https://github.com/matthew-a-carr/travel-planner',
+    description:
+      'Collaborative travel budget planning for multi-destination, round-the-world trips. Production-quality Next.js with DDD-inspired layered architecture, built AI-assisted.',
+    tags: ['Next.js 16', 'TypeScript', 'Drizzle', 'Expo'],
+  },
+  {
+    name: 'Engineering Principles',
+    href: 'https://github.com/matthew-a-carr/engineering-principles',
+    description:
+      'Cross-repo engineering principles as a Claude Code plugin. Agents read it to learn what good looks like — and write back as the principles evolve.',
+    tags: ['Claude Code', 'Clean Architecture', 'DDD'],
+  },
+  {
+    name: 'Dev Skills',
+    href: 'https://github.com/matthew-a-carr/dev-skills',
+    description:
+      'Reusable agent skills shared across my repositories — TDD loops, dependency triage, design grilling, architecture reviews.',
+    tags: ['Claude Code', 'Agent skills'],
+  },
+  {
+    name: 'This Site',
+    href: 'https://github.com/matthew-a-carr/about',
+    description:
+      'Built in the open: Next.js 16 and GSAP, server-rendered, tested with Vitest, Playwright and axe.',
+    tags: ['Next.js', 'GSAP', 'Playwright'],
+  },
 ];
 
 const workPrinciples = [
@@ -26,55 +57,14 @@ const workPrinciples = [
   },
 ];
 
-const impactHighlights = [
-  {
-    title: 'Reliability first.',
-    text: 'Calm production before clever optimization.',
-  },
-  {
-    title: 'Product-aware.',
-    text: 'Technical calls mapped to outcomes and cost.',
-  },
-  { title: 'Team velocity.', text: 'Less cognitive load. Faster shipping.' },
-];
-
-const marqueeItems = [
-  'Java',
-  'Spring Boot',
-  'Kotlin',
-  'Kubernetes',
-  'AWS',
-  'GCP',
-  'PostgreSQL',
-  'Terraform',
-  'Docker',
-  'TypeScript',
-];
-
 const navLinks = [
   { label: 'Overview', href: '#main-content' },
+  { label: 'Building', href: '#building' },
   { label: 'About', href: '#about' },
-  { label: 'Impact', href: '#impact' },
   { label: 'Skills', href: '#skills' },
   { label: 'Current', href: '#current' },
   { label: 'Contact', href: '#contact' },
 ];
-
-const MarqueeList = () => (
-  <>
-    {marqueeItems.map((item) => (
-      <span
-        key={item}
-        className="flex shrink-0 items-center gap-8 pr-8 font-display text-2xl text-[color:var(--muted)] sm:text-3xl"
-      >
-        {item}
-        <span aria-hidden="true" className="text-[color:var(--accent)]">
-          ✦
-        </span>
-      </span>
-    ))}
-  </>
-);
 
 export default function Home() {
   return (
@@ -124,33 +114,34 @@ export default function Home() {
           </p>
           <h1
             data-split
-            className="mt-6 font-display text-[clamp(3.4rem,13vw,11rem)] leading-[0.95] tracking-[-0.045em] text-[color:var(--fg)]"
+            className="mt-6 font-display text-4xl text-[color:var(--fg)] sm:text-6xl"
           >
             Matthew Carr
           </h1>
           <p
             data-hero
-            className="mt-8 max-w-xl text-lg text-[color:var(--soft)] sm:text-xl"
+            className="mt-8 max-w-3xl font-display text-2xl leading-snug text-[color:var(--fg)] sm:text-4xl"
           >
-            I build backend platforms teams trust in production — reliable
-            systems, faster shipping, cleaner architecture.
+            I put good engineering principles and design into{' '}
+            <span className="text-[color:var(--accent)]">agentic systems</span>{' '}
+            — to build well-thought-out applications, in the open.
           </p>
           <div data-hero className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="https://www.linkedin.com/in/matthew-carr-17012284"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              LinkedIn
-            </a>
             <a
               href="https://github.com/matthew-a-carr"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary"
+              className="btn-primary"
             >
               GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/matthew-carr-17012284"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              LinkedIn
             </a>
           </div>
         </div>
@@ -173,30 +164,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills ticker */}
-      <div
-        aria-hidden="true"
-        className="marquee border-y border-[color:var(--border)] py-6"
-      >
-        <div className="marquee-track">
-          <MarqueeList />
-          <MarqueeList />
+      {/* Building */}
+      <section id="building" className="border-t border-[color:var(--border)]">
+        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
+          <div data-animate className="max-w-2xl">
+            <p className="eyebrow">01 · Building</p>
+            <h2 className="mt-5 font-display text-4xl text-[color:var(--fg)] sm:text-5xl">
+              What I&apos;m building
+            </h2>
+          </div>
+          <div className="mt-16 grid gap-5 md:grid-cols-2">
+            {projects.map((project, index) => (
+              <a
+                key={project.name}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-animate
+                data-delay={`${(index % 2) * 0.1}`}
+                className="card group flex flex-col p-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-display text-2xl text-[color:var(--fg)]">
+                    {project.name}
+                  </h3>
+                  <span
+                    aria-hidden="true"
+                    className="text-xl text-[color:var(--muted)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[color:var(--accent)]"
+                  >
+                    ↗
+                  </span>
+                </div>
+                <p className="mt-3 flex-1 text-[15px] text-[color:var(--soft)]">
+                  {project.description}
+                </p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-[color:var(--border)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-[color:var(--muted)]"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* About */}
-      <section id="about">
+      <section id="about" className="border-t border-[color:var(--border)]">
         <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
           <p className="eyebrow" data-animate>
-            01 · About
+            02 · About
           </p>
           <h2
             data-statement
             className="mt-8 max-w-4xl font-display text-3xl leading-snug text-[color:var(--fg)] sm:text-5xl"
           >
-            I work on product-critical backends where reliability and delivery
-            speed both matter. Vague requirements become resilient services
-            teams can trust.
+            Well-designed systems don&apos;t happen by accident. I capture the
+            principles behind them — DDD, clean architecture, safe delivery — as
+            living documents and skills that AI agents apply when they write
+            code.
           </h2>
           <div className="mt-20 grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div
@@ -232,35 +263,6 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact */}
-      <section id="impact" className="border-t border-[color:var(--border)]">
-        <div className="container mx-auto px-5 py-28 sm:px-8 sm:py-36">
-          <div data-animate className="max-w-2xl">
-            <p className="eyebrow">02 · Impact</p>
-            <h2 className="mt-5 font-display text-4xl text-[color:var(--fg)] sm:text-5xl">
-              What teams get when we work together
-            </h2>
-          </div>
-          <div className="mt-16 grid gap-5 md:grid-cols-3">
-            {impactHighlights.map((item, index) => (
-              <div
-                key={item.title}
-                data-animate
-                data-delay={`${index * 0.1}`}
-                className="card p-8"
-              >
-                <h3 className="font-display text-2xl text-[color:var(--fg)]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-[15px] text-[color:var(--soft)]">
-                  {item.text}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

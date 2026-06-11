@@ -24,11 +24,18 @@ vi.mock('./components/hero-canvas/HeroCanvas', () => ({
 
 const expectedNavLinks: { label: string; href: string }[] = [
   { label: 'Overview', href: '#main-content' },
+  { label: 'Building', href: '#building' },
   { label: 'About', href: '#about' },
-  { label: 'Impact', href: '#impact' },
   { label: 'Skills', href: '#skills' },
   { label: 'Current', href: '#current' },
   { label: 'Contact', href: '#contact' },
+];
+
+const expectedProjectLinks = [
+  'https://github.com/matthew-a-carr/travel-planner',
+  'https://github.com/matthew-a-carr/engineering-principles',
+  'https://github.com/matthew-a-carr/dev-skills',
+  'https://github.com/matthew-a-carr/about',
 ];
 
 describe('Page', () => {
@@ -63,15 +70,26 @@ describe('Page', () => {
     expect(
       screen.getByRole('heading', {
         level: 2,
-        name: 'Technical skills',
+        name: "What I'm building",
       }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', {
         level: 2,
-        name: 'What teams get when we work together',
+        name: 'Technical skills',
       }),
     ).toBeInTheDocument();
+  });
+
+  it('links every project card to its GitHub repository in a new tab', () => {
+    const { container } = render(<Page />);
+
+    for (const href of expectedProjectLinks) {
+      const anchor = container.querySelector(`a[href="${href}"]`);
+      expect(anchor, `project link ${href}`).toBeInTheDocument();
+      expect(anchor).toHaveAttribute('target', '_blank');
+      expect(anchor).toHaveAttribute('rel', 'noopener noreferrer');
+    }
   });
 
   it('renders the primary nav with all expected anchors', () => {
@@ -97,8 +115,8 @@ describe('Page', () => {
 
     for (const id of [
       'main-content',
+      'building',
       'about',
-      'impact',
       'skills',
       'current',
       'contact',
@@ -113,14 +131,6 @@ describe('Page', () => {
     for (const label of ['Role', 'Stack', 'Now', 'Focus']) {
       expect(screen.getByText(label)).toBeInTheDocument();
     }
-  });
-
-  it('hides the decorative skills ticker from assistive tech', () => {
-    const { container } = render(<Page />);
-
-    const marquee = container.querySelector('.marquee');
-    expect(marquee).toBeInTheDocument();
-    expect(marquee).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('links to Benifex in a new tab from the current-role section', () => {

@@ -114,7 +114,7 @@ test('skip-to-content link becomes visible on focus and targets the hero', async
 test('hash deep-link on initial load scrolls to the target section', async ({
   page,
 }) => {
-  await gotoHome(page, '/#impact');
+  await gotoHome(page, '/#building');
 
   // Wait for smooth-scroll to settle: poll until scrollY stays stable.
   await page.waitForFunction(
@@ -135,10 +135,10 @@ test('hash deep-link on initial load scrolls to the target section', async ({
   );
 
   const viewportTop = await page
-    .locator('#impact')
+    .locator('#building')
     .evaluate((el) => el.getBoundingClientRect().top);
 
-  // The impact section should be at or near the top of the viewport.
+  // The building section should be at or near the top of the viewport.
   expect(viewportTop).toBeGreaterThanOrEqual(0);
   expect(viewportTop).toBeLessThan(200);
 });
@@ -160,7 +160,7 @@ test('scroll-triggered elements gain the in-view class after scrolling', async (
 }) => {
   await gotoHome(page);
 
-  await page.locator('#impact').scrollIntoViewIfNeeded();
+  await page.locator('#building').scrollIntoViewIfNeeded();
   await page.waitForTimeout(800);
 
   const inViewCount = await page.locator('[data-animate].in-view').count();
@@ -207,7 +207,7 @@ test('page title and meta description match the brand', async ({ page }) => {
     .locator('meta[name="description"]')
     .getAttribute('content');
   expect(description).toBe(
-    'Matthew Carr is a Staff Backend Engineer at Benifex building reliable backend platforms with Java, Spring Boot, Kubernetes, AWS and GCP.',
+    'Matthew Carr is a Staff Backend Engineer at Benifex, putting good engineering principles and design into agentic systems to build well-thought-out applications.',
   );
 });
 
