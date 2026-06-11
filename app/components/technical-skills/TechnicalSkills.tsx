@@ -1,8 +1,7 @@
 import { FunctionComponent, ReactNode } from 'react';
-import { FaJava, FaMicrosoft } from 'react-icons/fa';
+import { FaAws, FaJava, FaMicrosoft } from 'react-icons/fa';
 import { RiNextjsFill } from 'react-icons/ri';
 import {
-  SiAmazon,
   SiAngular,
   SiCypress,
   SiDocker,
@@ -82,7 +81,7 @@ const skills: { name: string; icon: ReactNode }[] = [
   },
   {
     name: 'AWS',
-    icon: <SiAmazon className="h-6 w-6" />,
+    icon: <FaAws className="h-6 w-6" />,
   },
   {
     name: 'Azure',
