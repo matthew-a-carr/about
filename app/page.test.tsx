@@ -12,7 +12,12 @@ vi.mock('./components/technical-skills/TechnicalSkills', () => ({
   default: () => null,
 }));
 
-vi.mock('./components/reveal/RevealOnScroll', () => ({
+vi.mock('./components/effects/GsapEffects', () => ({
+  __esModule: true,
+  default: () => null,
+}));
+
+vi.mock('./components/hero-canvas/HeroCanvas', () => ({
   __esModule: true,
   default: () => null,
 }));
@@ -27,13 +32,27 @@ const expectedNavLinks: { label: string; href: string }[] = [
 ];
 
 describe('Page', () => {
-  it('renders the hero H1', () => {
+  it('renders the hero H1 with the brand name', () => {
     render(<Page />);
 
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: 'I build backend platforms teams trust in production.',
+        name: 'Matthew Carr',
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it('states the Staff Backend Engineer role in the hero and current section', () => {
+    render(<Page />);
+
+    expect(
+      screen.getByText('Staff Backend Engineer — Benifex'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        name: 'Staff Backend Engineer at Benifex',
       }),
     ).toBeInTheDocument();
   });
@@ -43,13 +62,13 @@ describe('Page', () => {
 
     expect(
       screen.getByRole('heading', {
-        level: 3,
+        level: 2,
         name: 'Technical skills',
       }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', {
-        level: 3,
+        level: 2,
         name: 'What teams get when we work together',
       }),
     ).toBeInTheDocument();
@@ -94,6 +113,14 @@ describe('Page', () => {
     for (const label of ['Role', 'Stack', 'Now', 'Focus']) {
       expect(screen.getByText(label)).toBeInTheDocument();
     }
+  });
+
+  it('hides the decorative skills ticker from assistive tech', () => {
+    const { container } = render(<Page />);
+
+    const marquee = container.querySelector('.marquee');
+    expect(marquee).toBeInTheDocument();
+    expect(marquee).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('links to Benifex in a new tab from the current-role section', () => {

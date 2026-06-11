@@ -7,17 +7,21 @@ test('home page has no serious or critical accessibility violations', async ({
 }) => {
   await gotoHome(page);
 
-  // Reveal animations start at opacity:0; disable transitions and force
-  // the rested state so axe scans what the user actually sees rather than
-  // the mid-animation frame.
+  // GSAP-animated elements start at opacity:0 (or dimmed, for the scrubbed
+  // statement words); force the rested state so axe scans what the user
+  // actually sees rather than a mid-animation frame. !important beats the
+  // inline styles GSAP sets.
   await page.addStyleTag({
-    content:
-      '.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }',
-  });
-  await page.evaluate(() => {
-    for (const el of document.querySelectorAll('.reveal')) {
-      el.classList.add('in-view');
-    }
+    content: [
+      '[data-animate], [data-hero], [data-split], [data-split] *,',
+      '[data-lines], [data-lines] *, .statement-word {',
+      '  opacity: 1 !important;',
+      '  visibility: visible !important;',
+      '  transform: none !important;',
+      '  transition: none !important;',
+      '  animation: none !important;',
+      '}',
+    ].join('\n'),
   });
 
   const results = await new AxeBuilder({ page })

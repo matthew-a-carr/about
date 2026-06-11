@@ -99,11 +99,11 @@ const TechnicalSkills: FunctionComponent = () => (
     {skills.map((skill) => (
       <div
         key={skill.name}
-        className="group flex items-center gap-3 rounded-2xl border border-[color:var(--border)] bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--border-strong)] hover:shadow-[0_12px_36px_-20px_rgba(0,0,0,0.18)]"
+        className="group flex items-center gap-3 rounded-2xl border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--border-strong)]"
       >
         <div
           aria-hidden="true"
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--fg)] text-white transition-colors group-hover:bg-black"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--bg)] text-[color:var(--fg)] transition-colors group-hover:bg-[color:var(--accent)] group-hover:text-[color:var(--on-accent)]"
         >
           {skill.icon}
         </div>

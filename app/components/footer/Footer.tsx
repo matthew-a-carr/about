@@ -31,7 +31,7 @@ const FooterIcon: FunctionComponent<FooterIconProps> = ({
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="group inline-flex items-center gap-3 rounded-full border border-[color:var(--border)] bg-white px-5 py-2.5 text-[13px] font-medium tracking-tight text-[color:var(--fg)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--border-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--fg)]"
+    className="group inline-flex items-center gap-3 rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-5 py-2.5 text-[13px] font-medium tracking-tight text-[color:var(--fg)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--border-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)]"
   >
     <span aria-hidden="true" className="text-[color:var(--fg)]">
       {icon}

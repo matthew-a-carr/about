@@ -11,6 +11,16 @@ vi.mock('@vercel/speed-insights/next', () => ({
   SpeedInsights: () => '__SPEED_INSIGHTS_MARKER__',
 }));
 
+// next/font/local only works under the Next.js compiler; return stable
+// class/variable names so the layout renders in jsdom.
+vi.mock('next/font/local', () => ({
+  __esModule: true,
+  default: ({ variable }: { variable: string }) => ({
+    className: 'mock-font',
+    variable,
+  }),
+}));
+
 const originalVercel = process.env.VERCEL;
 
 const loadLayout = async () => {
@@ -38,7 +48,7 @@ describe('RootLayout', () => {
       </RootLayout>,
     );
 
-    expect(markup).toContain('<html lang="en">');
+    expect(markup).toContain('<html lang="en"');
     expect(markup).toContain('<span data-testid="child">child</span>');
     expect(markup).not.toContain('__ANALYTICS_MARKER__');
     expect(markup).not.toContain('__SPEED_INSIGHTS_MARKER__');

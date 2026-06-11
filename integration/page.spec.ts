@@ -155,7 +155,7 @@ test('sticky header remains visible after scrolling to the bottom', async ({
   await expect(header).toBeVisible();
 });
 
-test('reveal-on-scroll elements gain the in-view class after scrolling', async ({
+test('scroll-triggered elements gain the in-view class after scrolling', async ({
   page,
 }) => {
   await gotoHome(page);
@@ -163,7 +163,7 @@ test('reveal-on-scroll elements gain the in-view class after scrolling', async (
   await page.locator('#impact').scrollIntoViewIfNeeded();
   await page.waitForTimeout(800);
 
-  const inViewCount = await page.locator('.reveal.in-view').count();
+  const inViewCount = await page.locator('[data-animate].in-view').count();
   expect(inViewCount).toBeGreaterThan(0);
 });
 
@@ -202,11 +202,13 @@ test('every section has at least one heading', async ({ page }) => {
 test('page title and meta description match the brand', async ({ page }) => {
   await gotoHome(page);
 
-  await expect(page).toHaveTitle('Matthew Carr');
+  await expect(page).toHaveTitle('Matthew Carr — Staff Backend Engineer');
   const description = await page
     .locator('meta[name="description"]')
     .getAttribute('content');
-  expect(description).toBe('About me');
+  expect(description).toBe(
+    'Matthew Carr is a Staff Backend Engineer at Benifex building reliable backend platforms with Java, Spring Boot, Kubernetes, AWS and GCP.',
+  );
 });
 
 test('footer exposes GitHub and LinkedIn links', async ({ page }) => {
