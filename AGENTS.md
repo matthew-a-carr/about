@@ -1,4 +1,4 @@
-READ ../agent-scripts/AGENTS.md BEFORE ANYTHING (skip if missing)
+READ ../dev-skills/AGENTS.md BEFORE ANYTHING (skip if missing)
 
 ## Notes for agent runs
 
