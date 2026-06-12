@@ -21,7 +21,7 @@ jobs:
           version: 10.27.0
       - uses: actions/setup-node@v6
         with:
-          node-version: '>=24.13.0'
+          node-version: '24.15.0'
           cache: 'pnpm'
       - name: Run unit tests
         run: |
@@ -39,7 +39,7 @@ jobs:
           version: 10.27.0
       - uses: actions/setup-node@v6
         with:
-          node-version: '>=24.13.0'
+          node-version: '24.15.0'
           cache: 'pnpm'
       - name: Run Biome checks
         run: |
@@ -57,7 +57,7 @@ jobs:
           version: 10.27.0
       - uses: actions/setup-node@v6
         with:
-          node-version: '>=24.13.0'
+          node-version: '24.15.0'
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
