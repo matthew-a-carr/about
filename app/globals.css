@@ -16,18 +16,19 @@
 }
 
 :root {
-  --bg: #0a0a0b;
-  --bg-elevated: #121214;
-  --fg: #f4f4f5;
-  --muted: #87878d;
-  --soft: #c2c2c8;
-  --surface: #121214;
-  --surface-alt: #0e0e10;
-  --border: rgba(244, 244, 245, 0.09);
-  --border-strong: rgba(244, 244, 245, 0.22);
-  --accent: #c8f31d;
-  --accent-dim: rgba(200, 243, 29, 0.12);
-  --on-accent: #0a0a0b;
+  --bg: #07070c;
+  --bg-elevated: #0f0f18;
+  --fg: #f5f4fa;
+  --muted: #8d8a9b;
+  --soft: #c9c4d6;
+  --surface: #0f0f18;
+  --surface-alt: #0b0b12;
+  --border: rgba(245, 244, 250, 0.09);
+  --border-strong: rgba(245, 244, 250, 0.22);
+  --accent: #b1a1ff;
+  --accent-warm: #ffb074;
+  --accent-dim: rgba(177, 161, 255, 0.13);
+  --on-accent: #07070c;
   --font-display:
     var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
     Arial, sans-serif;
@@ -69,7 +70,7 @@ body {
 
 /* Solid header — content must never bleed through the sticky surface. */
 .header-solid {
-  background: #0a0a0b;
+  background: #07070c;
 }
 
 /* Reading progress, scrubbed by GSAP. Sits on the header's top edge. */
@@ -80,9 +81,44 @@ body {
   right: 0;
   z-index: 40;
   height: 2px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
   transform: scaleX(0);
   transform-origin: 0 0;
+}
+
+/* Aurora wash behind the hero. Pure gradients (no blur filters) so it stays
+   cheap to composite; drift is reduced-motion guarded further down. */
+#main-content::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      42% 46% at 20% 26%,
+      rgba(177, 161, 255, 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      34% 40% at 80% 14%,
+      rgba(255, 176, 116, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      48% 54% at 72% 82%,
+      rgba(122, 104, 255, 0.16),
+      transparent 70%
+    );
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, 1.5%, 0) scale(1.05);
+  }
 }
 
 /* Section currently in view, set by GSAP via aria-current. */
@@ -102,13 +138,15 @@ section[id] {
   transition:
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    box-shadow 0.4s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: var(--border-strong);
-  background: #161618;
+  border-color: rgba(177, 161, 255, 0.35);
+  background: #13131f;
+  box-shadow: 0 24px 60px -28px rgba(177, 161, 255, 0.28);
 }
 
 .btn-primary {
@@ -188,7 +226,8 @@ section[id] {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 9999px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  box-shadow: 0 0 10px rgba(177, 161, 255, 0.7);
 }
 
 /* Statement words start dimmed; GSAP scrubs them to full strength. */
@@ -199,6 +238,10 @@ section[id] {
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+
+  #main-content::before {
+    animation: aurora-drift 26s ease-in-out infinite;
   }
 }
 
