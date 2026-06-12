@@ -94,7 +94,7 @@ export default function HeroCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1.1, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(244, 244, 245, 0.5)';
+        ctx.fillStyle = 'rgba(209, 198, 255, 0.55)';
         ctx.fill();
       }
 
@@ -109,8 +109,8 @@ export default function HeroCanvas() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(244, 244, 245, ${
-              0.14 * (1 - dist / LINK_DISTANCE)
+            ctx.strokeStyle = `rgba(177, 161, 255, ${
+              0.18 * (1 - dist / LINK_DISTANCE)
             })`;
             ctx.lineWidth = 1;
             ctx.stroke();
