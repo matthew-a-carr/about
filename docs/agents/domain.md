@@ -1,23 +1,28 @@
 # Domain Docs
 
-How the engineering skills should consume this repo's domain documentation.
+How the engineering skills should learn this repo's domain language and read its
+architectural decisions.
 
-**Layout: single-context.** One `CONTEXT.md` + `docs/adr/` at the repo root
-(neither exists yet — they are created lazily when terms or decisions actually
-get resolved, e.g. via `grill-with-docs`). Until then, proceed silently; don't
-flag their absence.
+## Domain language lives in
 
-## Before exploring, read these (if present)
+The root [`AGENTS.md`](../../AGENTS.md) — specifically the section contract (nav
+anchors, section ids, headings, asserted in `integration/_utils.ts`,
+`app/page.test.tsx`, `integration/page.spec.ts`) and the animation/progressive-
+enhancement rules. There is no `CONTEXT.md` glossary; don't assume or create one.
 
-- **`CONTEXT.md`** at the repo root — the project's domain glossary.
-- **`docs/adr/`** — ADRs that touch the area you're about to work in.
+When output names a concept (section, component, animation attribute), use the
+names already used in `AGENTS.md` and the codebase. Don't drift to synonyms.
 
-## Use the glossary's vocabulary
+## Architectural decisions live in
 
-When output names a domain concept (issue title, refactor proposal, test name),
-use the term as defined in `CONTEXT.md`. Don't drift to synonyms.
-
-## Flag ADR conflicts
+`docs/decisions/NNN-title.md` (created lazily — none exist yet). Write new ADRs
+with the `write-adr` skill (CONSTITUTION §7 template) when a decision meets the
+ADR triggers; it also maintains the `docs/decisions/README.md` index. Do **not**
+create a separate `docs/adr/` directory.
 
 If output contradicts an existing ADR, surface it explicitly rather than
-silently overriding.
+silently overriding it.
+
+## Layout
+
+Single-context: one Next.js app, decisions at the repo root.

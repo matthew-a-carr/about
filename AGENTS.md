@@ -41,13 +41,13 @@ This repo pins the `engineering-principles` and `dev-skills` marketplace plugins
 
 GitHub issues on `matthew-a-carr/about` (via `gh`). See `docs/agents/issue-tracker.md`.
 
-### Triage labels
+### Workflow labels
 
-Canonical five-role vocabulary, default strings. See `docs/agents/triage-labels.md`.
+travel-planner's `claude:*` lifecycle labels (not yet wired up here). See `docs/agents/workflow-labels.md`.
 
 ### Domain docs
 
-Single-context (`CONTEXT.md` + `docs/adr/` created lazily). See `docs/agents/domain.md`.
+Single-context. Domain language in this `AGENTS.md`; ADRs in `docs/decisions/` (via `write-adr`, created lazily). See `docs/agents/domain.md`.
 
 ### Stack & verification
 
