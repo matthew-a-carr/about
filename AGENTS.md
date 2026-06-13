@@ -43,7 +43,7 @@ GitHub issues on `matthew-a-carr/about` (via `gh`). See `docs/agents/issue-track
 
 ### Workflow labels
 
-travel-planner's `claude:*` lifecycle labels (not yet wired up here). See `docs/agents/workflow-labels.md`.
+travel-planner's `ai:*` lifecycle labels (not yet wired up here). See `docs/agents/workflow-labels.md`.
 
 ### Domain docs
 
