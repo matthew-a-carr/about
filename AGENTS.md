@@ -30,3 +30,27 @@ READ ../agent-scripts/AGENTS.md BEFORE ANYTHING (skip if missing)
 - **Verify visually**: after layout changes, screenshot desktop (1440px) and
   mobile (Pixel 7) with Playwright + installed Chrome and check for
   horizontal overflow before pushing.
+
+## Agent skills
+
+This repo pins the `engineering-principles` and `dev-skills` marketplace plugins
+(`.claude/settings.json`) so it runs the same agentic workflow as
+`travel-planner`. The per-repo config the skills read lives in `docs/agents/`:
+
+### Issue tracker
+
+GitHub issues on `matthew-a-carr/about` (via `gh`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Canonical five-role vocabulary, default strings. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context (`CONTEXT.md` + `docs/adr/` created lazily). See `docs/agents/domain.md`.
+
+### Stack & verification
+
+Next.js / pnpm / Biome / Vitest / Playwright. The commands universal skills run
+live in `docs/agents/verification.md` — skills source commands from there rather
+than hard-coding a toolchain, so the same skills extend to non-TS repos.
