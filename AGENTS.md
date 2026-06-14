@@ -165,7 +165,7 @@ silently overriding it.
 ## Marketplace plugins (best-effort)
 
 Two plugins are pinned in `.claude/settings.json` via the `matthew-a-carr`
-marketplace (`matthew-a-carr/claude-plugins`):
+marketplace (`matthew-a-carr/ai-plugins`):
 
 - **`engineering-principles@matthew-a-carr`** — engineering constitution,
   `apply-principles` and `architecture-review` skills.

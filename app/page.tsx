@@ -20,18 +20,11 @@ const projects = [
     tags: ['Next.js 16', 'TypeScript', 'Drizzle', 'Expo'],
   },
   {
-    name: 'Engineering Principles',
-    href: 'https://github.com/matthew-a-carr/engineering-principles',
+    name: 'AI Plugins',
+    href: 'https://github.com/matthew-a-carr/ai-plugins',
     description:
-      'Cross-repo engineering principles as a Claude Code plugin. Agents read it to learn what good looks like — and write back as the principles evolve.',
-    tags: ['Claude Code', 'Clean Architecture', 'DDD'],
-  },
-  {
-    name: 'Agent Skills',
-    href: 'https://github.com/matthew-a-carr/agent-skills',
-    description:
-      'Reusable agent skills shared across my repositories — TDD loops, dependency triage, design grilling, architecture reviews.',
-    tags: ['Claude Code', 'Agent skills'],
+      'Engineering principles and reusable agent skills — TDD loops, architecture reviews, design grilling, dependency triage — distributed as plugins for Claude Code, Codex, Cursor and more.',
+    tags: ['Go', 'Agent Skills', 'Clean Architecture'],
   },
   {
     name: 'This Site',

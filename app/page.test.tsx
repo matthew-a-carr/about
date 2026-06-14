@@ -33,8 +33,7 @@ const expectedNavLinks: { label: string; href: string }[] = [
 
 const expectedProjectLinks = [
   'https://github.com/matthew-a-carr/travel-planner',
-  'https://github.com/matthew-a-carr/engineering-principles',
-  'https://github.com/matthew-a-carr/agent-skills',
+  'https://github.com/matthew-a-carr/ai-plugins',
   'https://github.com/matthew-a-carr/about',
 ];
 
