@@ -1,4 +1,4 @@
-READ ../agent-scripts/AGENTS.md BEFORE ANYTHING (skip if missing)
+READ ../agent-skills/AGENTS.md BEFORE ANYTHING (skip if missing)
 
 ## Notes for agent runs
 
@@ -33,7 +33,7 @@ READ ../agent-scripts/AGENTS.md BEFORE ANYTHING (skip if missing)
 
 ## Agent skills
 
-This repo pins the `engineering-principles` and `dev-skills` marketplace plugins
+This repo pins the `engineering-principles` and `agent-skills` marketplace plugins
 (`.claude/settings.json`) so it runs the same agentic workflow as
 `travel-planner`. The per-repo config the skills read lives in `docs/agents/`:
 

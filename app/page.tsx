@@ -27,8 +27,8 @@ const projects = [
     tags: ['Claude Code', 'Clean Architecture', 'DDD'],
   },
   {
-    name: 'Dev Skills',
-    href: 'https://github.com/matthew-a-carr/dev-skills',
+    name: 'Agent Skills',
+    href: 'https://github.com/matthew-a-carr/agent-skills',
     description:
       'Reusable agent skills shared across my repositories — TDD loops, dependency triage, design grilling, architecture reviews.',
     tags: ['Claude Code', 'Agent skills'],
